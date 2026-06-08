@@ -124,32 +124,34 @@ function renderBars() {
   const scene = document.querySelector("#barScene");
   const metric = state.chartMetric;
   document.querySelector("#barTitle").textContent = `门店${state.month}${metricLabel(metric)}排行`;
+  const previousMonth = state.data.previousMonth;
   const ranked = state.data.stores
     .map((store) => ({
       name: store.name,
       value: metricValue(store, state.month, metric),
-      orders: metricValue(store, state.month, "orders"),
+      previous: previousMonth ? metricValue(store, previousMonth, metric) : 0,
     }))
-    .sort((a, b) => b.value - a.value)
-    .slice(0, 12);
+    .sort((a, b) => b.value - a.value);
   const max = Math.max(...ranked.map((item) => item.value), PERCENT_METRICS.has(metric) ? 0.01 : 1);
   scene.innerHTML = ranked.map((item, index) => {
-    const height = Math.max(22, (item.value / max) * 265);
+    const width = Math.max(3, (item.value / max) * 100);
     const accent = COLORS[index % COLORS.length];
+    const rate = previousMonth ? changeRate(item.value, item.previous) : 0;
+    const isDown = rate < 0;
     return `
-      <div class="bar-wrap" title="${item.name} ${valueText(metric, item.value)} ${metricLabel(metric)}">
-        <div class="bar" style="--h:${height}px;--accent:${accent};animation-delay:${index * 55}ms">
-          <i class="bar-face front"></i>
-          <i class="bar-face back"></i>
-          <i class="bar-face left"></i>
-          <i class="bar-face right"></i>
-          <i class="bar-face top"></i>
+      <div class="ranking-row ${index < 3 ? "top" : ""}" style="--accent:${accent}">
+        <div class="rank-index">#${String(index + 1).padStart(2, "0")}</div>
+        <div class="rank-store" title="${item.name}">${item.name}</div>
+        <div class="rank-bar-track">
+          <div class="rank-bar-fill" style="--w:${width}%"></div>
         </div>
-        <div class="bar-label">${item.name}<br>${valueText(metric, item.value)}</div>
+        <div class="rank-value">${valueText(metric, item.value)}</div>
+        <div class="rank-change ${isDown ? "down" : ""}">${previousMonth ? `${isDown ? "" : "+"}${pctFmt.format(rate)}` : "-"}</div>
       </div>
     `;
   }).join("");
-  renderConnectors(ranked);
+  scene.className = "ranking-board";
+  renderConnectors([]);
 }
 
 function renderConnectors(items) {
