@@ -557,7 +557,17 @@ function readMonthlyComparison(workbook, payload) {
 function readDetailSheet(workbook, payload) {
   const sheet = workbook.Sheets["数据明细"] || workbook.Sheets[workbook.SheetNames[7]];
   if (!sheet) throw new Error("没有找到 数据明细 工作表");
-  const months = Array.from({ length: 5 }, (_, index) => normalizeMonthName(sheetCell(sheet, 1, 5 + index)) || `${index + 1}月`);
+  const monthCols = [];
+  for (let col = 5; col <= 24; col += 1) {
+    const raw = String(sheetCell(sheet, 1, col) || "").trim();
+    if (!raw || raw === "合计") break;
+    const month = normalizeMonthName(raw);
+    if (month) monthCols.push({ month, col });
+  }
+  if (!monthCols.length) {
+    throw new Error("数据明细 工作表没有识别到月份列");
+  }
+  const months = monthCols.map((item) => item.month);
   months.forEach((month) => {
     if (!payload.months.includes(month)) payload.months.push(month);
   });
@@ -574,12 +584,47 @@ function readDetailSheet(workbook, payload) {
     const metric = metricMap[metricName];
     if (!currentStore || !metric) continue;
     const store = ensurePayloadStore(payload, currentStore);
-    months.forEach((month, index) => {
-      const value = numeric(sheetCell(sheet, row, 5 + index));
+    monthCols.forEach(({ month, col }) => {
+      const value = numeric(sheetCell(sheet, row, col));
       if (value !== null) {
         ensureMonth(store, month);
         store.monthly[month][metric] = value;
       }
+    });
+  }
+}
+
+function monthFromSummaryTitle(value) {
+  const text = String(value || "");
+  const match = text.match(/(\d{1,2})月/);
+  return match ? `${Number(match[1])}月` : null;
+}
+
+function readSummarySheetFallback(workbook, payload) {
+  const sheet = workbook.Sheets["总表-数据收集"] || workbook.Sheets[workbook.SheetNames[2]];
+  if (!sheet) throw new Error("没有找到 总表-数据收集 工作表");
+  const month = monthFromSummaryTitle(sheetCell(sheet, 2, 3)) || monthFromSummaryTitle(sheetCell(sheet, 1, 1));
+  if (!month) throw new Error("总表-数据收集 未识别到月份");
+  if (!payload.months.includes(month)) payload.months.push(month);
+  for (let row = 5; row <= 80; row += 1) {
+    const name = normalizeStoreName(sheetCell(sheet, row, 2));
+    if (!name) continue;
+    if (name === "合计") break;
+    const store = ensurePayloadStore(payload, name);
+    ensureMonth(store, month);
+    const target = store.monthly[month];
+    const mapping = {
+      spend: 5,
+      liveSessions: 6,
+      shortVideos: 7,
+      leads: 8,
+      visits: 18,
+      orders: 19,
+      orderShare: 22,
+    };
+    Object.entries(mapping).forEach(([metric, col]) => {
+      const value = numeric(sheetCell(sheet, row, col));
+      if (value !== null) target[metric] = value;
     });
   }
 }
@@ -606,7 +651,11 @@ function buildPayloadFromWorkbook(workbook, fileName) {
     totals: {},
   };
   readMonthlyComparison(workbook, payload);
-  readDetailSheet(workbook, payload);
+  try {
+    readDetailSheet(workbook, payload);
+  } catch (error) {
+    readSummarySheetFallback(workbook, payload);
+  }
   payload.months = [...new Set(payload.months)]
     .filter((month) => payload.stores.some((store) => Object.values(store.monthly?.[month] || {}).some(Boolean)))
     .sort((a, b) => parseInt(a, 10) - parseInt(b, 10));

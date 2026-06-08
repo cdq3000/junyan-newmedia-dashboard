@@ -119,7 +119,17 @@ def read_monthly_sheet(wb, stores: dict[str, dict[str, Any]]) -> None:
 def read_detail_sheet(wb, stores: dict[str, dict[str, Any]]) -> None:
     ws = wb.worksheets[7]
     current_store = None
-    months = [str(ws.cell(row=1, column=col).value).strip() for col in range(5, 10)]
+    month_cols = []
+    col = 5
+    while col <= ws.max_column:
+        raw = ws.cell(row=1, column=col).value
+        label = str(raw).strip() if raw else ""
+        if not label or label == "合计":
+            break
+        month_cols.append((label, col))
+        col += 1
+    if not month_cols:
+        raise ValueError("No month columns found in detail sheet")
     metric_map = {
         "直播场次": "liveSessions",
         "短视频发布": "shortVideos",
@@ -134,8 +144,43 @@ def read_detail_sheet(wb, stores: dict[str, dict[str, Any]]) -> None:
         if not current_store or not metric:
             continue
         store = ensure_store(stores, current_store)
-        for offset, month in enumerate(months):
-            value = num(ws.cell(row=row, column=5 + offset).value)
+        for month, col in month_cols:
+            value = num(ws.cell(row=row, column=col).value)
+        if value is not None:
+            store["monthly"][month][metric] = value
+
+
+def month_from_summary_title(value: Any) -> str | None:
+    import re
+
+    text = "" if value is None else str(value)
+    match = re.search(r"(\d{1,2})月", text)
+    return f"{int(match.group(1))}月" if match else None
+
+
+def read_summary_sheet_fallback(wb, stores: dict[str, dict[str, Any]]) -> None:
+    ws = wb.worksheets[2]
+    month = month_from_summary_title(ws.cell(row=2, column=3).value) or month_from_summary_title(ws.cell(row=1, column=1).value)
+    if not month:
+        return
+    mapping = {
+        "spend": 5,
+        "liveSessions": 6,
+        "shortVideos": 7,
+        "leads": 8,
+        "visits": 18,
+        "orders": 19,
+        "orderShare": 22,
+    }
+    for row in range(5, ws.max_row + 1):
+        name = norm_store(ws.cell(row=row, column=2).value)
+        if not name:
+            continue
+        if name == "合计":
+            break
+        store = ensure_store(stores, name)
+        for metric, col in mapping.items():
+            value = num(ws.cell(row=row, column=col).value)
             if value is not None:
                 store["monthly"][month][metric] = value
 
@@ -144,7 +189,10 @@ def build_payload(excel_path: Path) -> dict[str, Any]:
     wb = load_workbook(excel_path, data_only=True, read_only=True)
     stores: dict[str, dict[str, Any]] = {}
     read_monthly_sheet(wb, stores)
-    read_detail_sheet(wb, stores)
+    try:
+        read_detail_sheet(wb, stores)
+    except Exception:
+        read_summary_sheet_fallback(wb, stores)
 
     ordered = sorted(
         stores.values(),
