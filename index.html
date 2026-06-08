@@ -24,6 +24,10 @@
             <span>门店</span>
             <select id="storeSelect"></select>
           </label>
+          <label class="select-wrap">
+            <span>图表指标</span>
+            <select id="metricSelect"></select>
+          </label>
           <a class="ghost-button inline-action" href="./admin.html#stores">维护门店</a>
         </section>
       </header>
@@ -50,7 +54,7 @@
           <div class="panel-head">
             <div>
               <p class="eyebrow">3D Volume Ranking</p>
-              <h2>门店月度指标强度</h2>
+              <h2 id="barTitle">门店月度指标强度</h2>
             </div>
             <div id="syncBadge" class="sync-badge">同步中</div>
           </div>
@@ -77,7 +81,7 @@
           <div class="panel-head">
             <div>
               <p class="eyebrow">Monthly Trend</p>
-              <h2>集团月度变化趋势</h2>
+              <h2 id="trendTitle">集团月度变化趋势</h2>
             </div>
           </div>
           <svg id="trendChart" class="trend-chart" viewBox="0 0 1200 300" preserveAspectRatio="none"></svg>

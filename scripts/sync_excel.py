@@ -18,6 +18,7 @@ METRICS = {
     "visits": "邀约到店",
     "orders": "新媒体订单",
     "orderShare": "新媒体订单占零售占比",
+    "attritionRate": "门店离系率",
     "spend": "投流费用",
 }
 

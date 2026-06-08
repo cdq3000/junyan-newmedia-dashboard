@@ -1,7 +1,7 @@
 {
   "title": "骏延集团新媒体数据",
   "sourceFile": "C:\\Users\\lala\\Desktop\\2026年1-5月骏延集团新媒体数据表(总.xlsx",
-  "generatedAt": "2026-06-08T20:03:29",
+  "generatedAt": "2026-06-08T22:45:55",
   "months": [
     "1月",
     "2月",
@@ -18,6 +18,7 @@
     "visits": "邀约到店",
     "orders": "新媒体订单",
     "orderShare": "新媒体订单占零售占比",
+    "attritionRate": "门店离系率",
     "spend": "投流费用"
   },
   "stores": [
@@ -31,6 +32,7 @@
           "visits": 77.0,
           "orders": 36.0,
           "orderShare": 0.31,
+          "attritionRate": 0,
           "spend": 112378.0
         },
         "2月": {
@@ -40,6 +42,7 @@
           "visits": 22.0,
           "orders": 4.0,
           "orderShare": 0.1,
+          "attritionRate": 0,
           "spend": 76252.1
         },
         "3月": {
@@ -49,6 +52,7 @@
           "visits": 29.0,
           "orders": 9.0,
           "orderShare": 0.158,
+          "attritionRate": 0,
           "spend": 42298.0
         },
         "4月": {
@@ -58,6 +62,7 @@
           "visits": 22.0,
           "orders": 7.0,
           "orderShare": 0.008,
+          "attritionRate": 0,
           "spend": 19166.6
         },
         "5月": {
@@ -67,6 +72,7 @@
           "visits": 20.0,
           "orders": 8.0,
           "orderShare": 0.2,
+          "attritionRate": 0,
           "spend": 24770.6
         },
         "6月": {
@@ -76,6 +82,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "7月": {
@@ -85,6 +92,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "8月": {
@@ -94,6 +102,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "9月": {
@@ -103,6 +112,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "10月": {
@@ -112,6 +122,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "11月": {
@@ -121,6 +132,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "12月": {
@@ -130,6 +142,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         }
       }
@@ -144,6 +157,7 @@
           "visits": 41.0,
           "orders": 11.0,
           "orderShare": 0.21,
+          "attritionRate": 0,
           "spend": 0.0
         },
         "2月": {
@@ -153,6 +167,7 @@
           "visits": 29.0,
           "orders": 5.0,
           "orderShare": 0.11,
+          "attritionRate": 0,
           "spend": 0.0
         },
         "3月": {
@@ -162,6 +177,7 @@
           "visits": 50.0,
           "orders": 9.0,
           "orderShare": 0.2,
+          "attritionRate": 0,
           "spend": 15070.7
         },
         "4月": {
@@ -171,6 +187,7 @@
           "visits": 28.0,
           "orders": 7.0,
           "orderShare": 0.17,
+          "attritionRate": 0,
           "spend": 4592.0
         },
         "5月": {
@@ -180,6 +197,7 @@
           "visits": 32.0,
           "orders": 8.0,
           "orderShare": 0.236,
+          "attritionRate": 0,
           "spend": 12415.0
         },
         "6月": {
@@ -189,6 +207,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "7月": {
@@ -198,6 +217,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "8月": {
@@ -207,6 +227,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "9月": {
@@ -216,6 +237,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "10月": {
@@ -225,6 +247,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "11月": {
@@ -234,6 +257,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "12月": {
@@ -243,6 +267,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         }
       }
@@ -257,6 +282,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "2月": {
@@ -266,6 +292,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "3月": {
@@ -275,6 +302,7 @@
           "visits": 41.0,
           "orders": 16.0,
           "orderShare": 0.15,
+          "attritionRate": 0,
           "spend": 6374.27
         },
         "4月": {
@@ -284,6 +312,7 @@
           "visits": 4.0,
           "orders": 9.0,
           "orderShare": 0.12,
+          "attritionRate": 0,
           "spend": 17748.6
         },
         "5月": {
@@ -293,6 +322,7 @@
           "visits": 25.0,
           "orders": 9.0,
           "orderShare": 0.21,
+          "attritionRate": 0,
           "spend": 19828.5
         },
         "6月": {
@@ -302,6 +332,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "7月": {
@@ -311,6 +342,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "8月": {
@@ -320,6 +352,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "9月": {
@@ -329,6 +362,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "10月": {
@@ -338,6 +372,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "11月": {
@@ -347,6 +382,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "12月": {
@@ -356,6 +392,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         }
       }
@@ -370,6 +407,7 @@
           "visits": 76.0,
           "orders": 15.0,
           "orderShare": 0.15,
+          "attritionRate": 0,
           "spend": 15000.0
         },
         "2月": {
@@ -379,6 +417,7 @@
           "visits": 27.0,
           "orders": 7.0,
           "orderShare": 0.15,
+          "attritionRate": 0,
           "spend": 7000.0
         },
         "3月": {
@@ -388,6 +427,7 @@
           "visits": 52.0,
           "orders": 10.0,
           "orderShare": 0.15,
+          "attritionRate": 0,
           "spend": 11500.0
         },
         "4月": {
@@ -397,6 +437,7 @@
           "visits": 35.0,
           "orders": 5.0,
           "orderShare": 0.15,
+          "attritionRate": 0,
           "spend": 9600.0
         },
         "5月": {
@@ -406,6 +447,7 @@
           "visits": 41.0,
           "orders": 8.0,
           "orderShare": 0.15,
+          "attritionRate": 0,
           "spend": 14100.0
         },
         "6月": {
@@ -415,6 +457,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "7月": {
@@ -424,6 +467,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "8月": {
@@ -433,6 +477,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "9月": {
@@ -442,6 +487,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "10月": {
@@ -451,6 +497,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "11月": {
@@ -460,6 +507,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "12月": {
@@ -469,6 +517,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         }
       }
@@ -483,6 +532,7 @@
           "visits": 25.0,
           "orders": 6.0,
           "orderShare": 0.12,
+          "attritionRate": 0,
           "spend": 62531.3
         },
         "2月": {
@@ -492,6 +542,7 @@
           "visits": 13.0,
           "orders": 3.0,
           "orderShare": 0.23,
+          "attritionRate": 0,
           "spend": 26762.4
         },
         "3月": {
@@ -501,6 +552,7 @@
           "visits": 26.0,
           "orders": 9.0,
           "orderShare": 0.13,
+          "attritionRate": 0,
           "spend": 73590.7
         },
         "4月": {
@@ -510,6 +562,7 @@
           "visits": 51.0,
           "orders": 12.0,
           "orderShare": 0.1043,
+          "attritionRate": 0,
           "spend": 94677.8
         },
         "5月": {
@@ -519,6 +572,7 @@
           "visits": 31.0,
           "orders": 10.0,
           "orderShare": 0.16,
+          "attritionRate": 0,
           "spend": 123493.0
         },
         "6月": {
@@ -528,6 +582,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "7月": {
@@ -537,6 +592,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "8月": {
@@ -546,6 +602,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "9月": {
@@ -555,6 +612,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "10月": {
@@ -564,6 +622,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "11月": {
@@ -573,6 +632,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "12月": {
@@ -582,6 +642,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         }
       }
@@ -596,6 +657,7 @@
           "visits": 27.0,
           "orders": 6.0,
           "orderShare": 0.06,
+          "attritionRate": 0,
           "spend": 98074.3
         },
         "2月": {
@@ -605,6 +667,7 @@
           "visits": 21.0,
           "orders": 13.0,
           "orderShare": 0.6,
+          "attritionRate": 0,
           "spend": 68187.3
         },
         "3月": {
@@ -614,6 +677,7 @@
           "visits": 31.0,
           "orders": 17.0,
           "orderShare": 0.346,
+          "attritionRate": 0,
           "spend": 73233.3
         },
         "4月": {
@@ -623,6 +687,7 @@
           "visits": 60.0,
           "orders": 16.0,
           "orderShare": 0.1,
+          "attritionRate": 0,
           "spend": 67492.1
         },
         "5月": {
@@ -632,6 +697,7 @@
           "visits": 28.0,
           "orders": 15.0,
           "orderShare": 0.2,
+          "attritionRate": 0,
           "spend": 47990.0
         },
         "6月": {
@@ -641,6 +707,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "7月": {
@@ -650,6 +717,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "8月": {
@@ -659,6 +727,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "9月": {
@@ -668,6 +737,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "10月": {
@@ -677,6 +747,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "11月": {
@@ -686,6 +757,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "12月": {
@@ -695,6 +767,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         }
       }
@@ -709,6 +782,7 @@
           "visits": 54.0,
           "orders": 11.0,
           "orderShare": 0.26,
+          "attritionRate": 0,
           "spend": 60542.3
         },
         "2月": {
@@ -718,6 +792,7 @@
           "visits": 11.0,
           "orders": 4.0,
           "orderShare": 0.25,
+          "attritionRate": 0,
           "spend": 38282.4
         },
         "3月": {
@@ -727,6 +802,7 @@
           "visits": 39.0,
           "orders": 13.0,
           "orderShare": 0.13,
+          "attritionRate": 0,
           "spend": 35182.0
         },
         "4月": {
@@ -736,6 +812,7 @@
           "visits": 22.0,
           "orders": 5.0,
           "orderShare": 0.062,
+          "attritionRate": 0,
           "spend": 84894.7
         },
         "5月": {
@@ -745,6 +822,7 @@
           "visits": 23.0,
           "orders": 4.0,
           "orderShare": 0.084,
+          "attritionRate": 0,
           "spend": 39428.6
         },
         "6月": {
@@ -754,6 +832,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "7月": {
@@ -763,6 +842,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "8月": {
@@ -772,6 +852,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "9月": {
@@ -781,6 +862,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "10月": {
@@ -790,6 +872,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "11月": {
@@ -799,6 +882,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "12月": {
@@ -808,6 +892,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         }
       }
@@ -822,6 +907,7 @@
           "visits": 22.0,
           "orders": 6.0,
           "orderShare": 0.1,
+          "attritionRate": 0,
           "spend": 35855.0
         },
         "2月": {
@@ -831,6 +917,7 @@
           "visits": 6.0,
           "orders": 3.0,
           "orderShare": 0.0,
+          "attritionRate": 0,
           "spend": 19537.4
         },
         "3月": {
@@ -840,6 +927,7 @@
           "visits": 11.0,
           "orders": 5.0,
           "orderShare": 0.11,
+          "attritionRate": 0,
           "spend": 21355.8
         },
         "4月": {
@@ -849,6 +937,7 @@
           "visits": 20.0,
           "orders": 3.0,
           "orderShare": 0.067,
+          "attritionRate": 0,
           "spend": 26237.0
         },
         "5月": {
@@ -858,6 +947,7 @@
           "visits": 13.0,
           "orders": 1.0,
           "orderShare": 0.0,
+          "attritionRate": 0,
           "spend": 20394.5
         },
         "6月": {
@@ -867,6 +957,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "7月": {
@@ -876,6 +967,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "8月": {
@@ -885,6 +977,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "9月": {
@@ -894,6 +987,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "10月": {
@@ -903,6 +997,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "11月": {
@@ -912,6 +1007,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "12月": {
@@ -921,6 +1017,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         }
       }
@@ -935,6 +1032,7 @@
           "visits": 7.0,
           "orders": 0.0,
           "orderShare": 0.0,
+          "attritionRate": 0,
           "spend": 0.0
         },
         "2月": {
@@ -944,6 +1042,7 @@
           "visits": 1.0,
           "orders": 0.0,
           "orderShare": 0.0,
+          "attritionRate": 0,
           "spend": 0.0
         },
         "3月": {
@@ -953,6 +1052,7 @@
           "visits": 3.0,
           "orders": 0.0,
           "orderShare": 0.0,
+          "attritionRate": 0,
           "spend": 0.0
         },
         "4月": {
@@ -962,6 +1062,7 @@
           "visits": 15.0,
           "orders": 0.0,
           "orderShare": 0.0,
+          "attritionRate": 0,
           "spend": 0.0
         },
         "5月": {
@@ -971,6 +1072,7 @@
           "visits": 8.0,
           "orders": 0.0,
           "orderShare": 0.0,
+          "attritionRate": 0,
           "spend": 0.0
         },
         "6月": {
@@ -980,6 +1082,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "7月": {
@@ -989,6 +1092,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "8月": {
@@ -998,6 +1102,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "9月": {
@@ -1007,6 +1112,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "10月": {
@@ -1016,6 +1122,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "11月": {
@@ -1025,6 +1132,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "12月": {
@@ -1034,6 +1142,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         }
       }
@@ -1048,6 +1157,7 @@
           "visits": 99.0,
           "orders": 19.0,
           "orderShare": 0.1,
+          "attritionRate": 0,
           "spend": 56953.3
         },
         "2月": {
@@ -1057,6 +1167,7 @@
           "visits": 67.0,
           "orders": 5.0,
           "orderShare": 0.22,
+          "attritionRate": 0,
           "spend": 57651.5
         },
         "3月": {
@@ -1066,6 +1177,7 @@
           "visits": 91.0,
           "orders": 21.0,
           "orderShare": 0.102,
+          "attritionRate": 0,
           "spend": 91765.9
         },
         "4月": {
@@ -1075,6 +1187,7 @@
           "visits": 80.0,
           "orders": 22.0,
           "orderShare": 0.169,
+          "attritionRate": 0,
           "spend": 64921.5
         },
         "5月": {
@@ -1084,6 +1197,7 @@
           "visits": 65.0,
           "orders": 20.0,
           "orderShare": 0.174,
+          "attritionRate": 0,
           "spend": 119690.0
         },
         "6月": {
@@ -1093,6 +1207,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "7月": {
@@ -1102,6 +1217,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "8月": {
@@ -1111,6 +1227,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "9月": {
@@ -1120,6 +1237,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "10月": {
@@ -1129,6 +1247,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "11月": {
@@ -1138,6 +1257,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "12月": {
@@ -1147,6 +1267,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         }
       }
@@ -1161,6 +1282,7 @@
           "visits": 54.0,
           "orders": 12.0,
           "orderShare": 0.17,
+          "attritionRate": 0,
           "spend": 69574.0
         },
         "2月": {
@@ -1170,6 +1292,7 @@
           "visits": 47.0,
           "orders": 11.0,
           "orderShare": 0.33,
+          "attritionRate": 0,
           "spend": 30054.8
         },
         "3月": {
@@ -1179,6 +1302,7 @@
           "visits": 92.0,
           "orders": 24.0,
           "orderShare": 0.2,
+          "attritionRate": 0,
           "spend": 70478.0
         },
         "4月": {
@@ -1188,6 +1312,7 @@
           "visits": 74.0,
           "orders": 35.0,
           "orderShare": 0.2,
+          "attritionRate": 0,
           "spend": 59715.0
         },
         "5月": {
@@ -1197,6 +1322,7 @@
           "visits": 69.0,
           "orders": 22.0,
           "orderShare": 0.2,
+          "attritionRate": 0,
           "spend": 112219.0
         },
         "6月": {
@@ -1206,6 +1332,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "7月": {
@@ -1215,6 +1342,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "8月": {
@@ -1224,6 +1352,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "9月": {
@@ -1233,6 +1362,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "10月": {
@@ -1242,6 +1372,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "11月": {
@@ -1251,6 +1382,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "12月": {
@@ -1260,6 +1392,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         }
       }
@@ -1274,6 +1407,7 @@
           "visits": 0.0,
           "orders": 0.0,
           "orderShare": 0.0,
+          "attritionRate": 0,
           "spend": 34115.2
         },
         "2月": {
@@ -1283,6 +1417,7 @@
           "visits": 3.0,
           "orders": 2.0,
           "orderShare": 0.25,
+          "attritionRate": 0,
           "spend": 15821.5
         },
         "3月": {
@@ -1292,6 +1427,7 @@
           "visits": 8.0,
           "orders": 2.0,
           "orderShare": 0.23,
+          "attritionRate": 0,
           "spend": 27175.8
         },
         "4月": {
@@ -1301,6 +1437,7 @@
           "visits": 24.0,
           "orders": 13.0,
           "orderShare": 0.06,
+          "attritionRate": 0,
           "spend": 37993.5
         },
         "5月": {
@@ -1310,6 +1447,7 @@
           "visits": 15.0,
           "orders": 0.0,
           "orderShare": 0.0,
+          "attritionRate": 0,
           "spend": 31541.59
         },
         "6月": {
@@ -1319,6 +1457,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "7月": {
@@ -1328,6 +1467,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "8月": {
@@ -1337,6 +1477,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "9月": {
@@ -1346,6 +1487,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "10月": {
@@ -1355,6 +1497,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "11月": {
@@ -1364,6 +1507,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "12月": {
@@ -1373,6 +1517,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         }
       }
@@ -1387,6 +1532,7 @@
           "visits": 2.0,
           "orders": 1.0,
           "orderShare": 0.1,
+          "attritionRate": 0,
           "spend": 42290.1
         },
         "2月": {
@@ -1396,6 +1542,7 @@
           "visits": 6.0,
           "orders": 0.0,
           "orderShare": 0.0,
+          "attritionRate": 0,
           "spend": 7603.6
         },
         "3月": {
@@ -1405,6 +1552,7 @@
           "visits": 21.0,
           "orders": 4.0,
           "orderShare": 0.2,
+          "attritionRate": 0,
           "spend": 38033.2
         },
         "4月": {
@@ -1414,6 +1562,7 @@
           "visits": 18.0,
           "orders": 7.0,
           "orderShare": 0.043,
+          "attritionRate": 0,
           "spend": 40025.9
         },
         "5月": {
@@ -1423,6 +1572,7 @@
           "visits": 9.0,
           "orders": 4.0,
           "orderShare": 0.207,
+          "attritionRate": 0,
           "spend": 26141.3
         },
         "6月": {
@@ -1432,6 +1582,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "7月": {
@@ -1441,6 +1592,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "8月": {
@@ -1450,6 +1602,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "9月": {
@@ -1459,6 +1612,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "10月": {
@@ -1468,6 +1622,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "11月": {
@@ -1477,6 +1632,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "12月": {
@@ -1486,6 +1642,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         }
       }
@@ -1500,6 +1657,7 @@
           "visits": 10.0,
           "orders": 1.0,
           "orderShare": 0.0,
+          "attritionRate": 0,
           "spend": 4280.23
         },
         "2月": {
@@ -1509,6 +1667,7 @@
           "visits": 16.0,
           "orders": 0.0,
           "orderShare": 0.0,
+          "attritionRate": 0,
           "spend": 25197.0
         },
         "3月": {
@@ -1518,6 +1677,7 @@
           "visits": 18.0,
           "orders": 2.0,
           "orderShare": 0.03,
+          "attritionRate": 0,
           "spend": 29648.0
         },
         "4月": {
@@ -1527,6 +1687,7 @@
           "visits": 25.0,
           "orders": 2.0,
           "orderShare": 0.067,
+          "attritionRate": 0,
           "spend": 32341.2
         },
         "5月": {
@@ -1536,6 +1697,7 @@
           "visits": 27.0,
           "orders": 4.0,
           "orderShare": 0.083,
+          "attritionRate": 0,
           "spend": 29621.0
         },
         "6月": {
@@ -1545,6 +1707,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "7月": {
@@ -1554,6 +1717,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "8月": {
@@ -1563,6 +1727,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "9月": {
@@ -1572,6 +1737,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "10月": {
@@ -1581,6 +1747,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "11月": {
@@ -1590,6 +1757,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "12月": {
@@ -1599,6 +1767,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         }
       }
@@ -1613,6 +1782,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "2月": {
@@ -1622,6 +1792,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "3月": {
@@ -1631,6 +1802,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "4月": {
@@ -1640,6 +1812,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "5月": {
@@ -1649,6 +1822,7 @@
           "visits": 1.0,
           "orders": 0.0,
           "orderShare": 0.0,
+          "attritionRate": 0,
           "spend": 20438.0
         },
         "6月": {
@@ -1658,6 +1832,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "7月": {
@@ -1667,6 +1842,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "8月": {
@@ -1676,6 +1852,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "9月": {
@@ -1685,6 +1862,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "10月": {
@@ -1694,6 +1872,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "11月": {
@@ -1703,6 +1882,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "12月": {
@@ -1712,6 +1892,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         }
       }
@@ -1726,6 +1907,7 @@
           "visits": 17.0,
           "orders": 10.0,
           "orderShare": 0.1,
+          "attritionRate": 0,
           "spend": 20584.0
         },
         "2月": {
@@ -1735,6 +1917,7 @@
           "visits": 9.0,
           "orders": 3.0,
           "orderShare": 0.25,
+          "attritionRate": 0,
           "spend": 13575.0
         },
         "3月": {
@@ -1744,6 +1927,7 @@
           "visits": 22.0,
           "orders": 6.0,
           "orderShare": 0.1,
+          "attritionRate": 0,
           "spend": 52867.0
         },
         "4月": {
@@ -1753,6 +1937,7 @@
           "visits": 2.0,
           "orders": 2.0,
           "orderShare": 0.1,
+          "attritionRate": 0,
           "spend": 27611.0
         },
         "5月": {
@@ -1762,6 +1947,7 @@
           "visits": 12.0,
           "orders": 4.0,
           "orderShare": 0.05,
+          "attritionRate": 0,
           "spend": 13811.0
         },
         "6月": {
@@ -1771,6 +1957,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "7月": {
@@ -1780,6 +1967,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "8月": {
@@ -1789,6 +1977,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "9月": {
@@ -1798,6 +1987,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "10月": {
@@ -1807,6 +1997,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "11月": {
@@ -1816,6 +2007,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "12月": {
@@ -1825,6 +2017,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         }
       }
@@ -1839,6 +2032,7 @@
           "visits": 22.0,
           "orders": 7.0,
           "orderShare": 0.12,
+          "attritionRate": 0,
           "spend": 51467.0
         },
         "2月": {
@@ -1848,6 +2042,7 @@
           "visits": 8.0,
           "orders": 3.0,
           "orderShare": 0.17,
+          "attritionRate": 0,
           "spend": 21695.8
         },
         "3月": {
@@ -1857,6 +2052,7 @@
           "visits": 27.0,
           "orders": 7.0,
           "orderShare": 0.18,
+          "attritionRate": 0,
           "spend": 69662.1
         },
         "4月": {
@@ -1866,6 +2062,7 @@
           "visits": 12.0,
           "orders": 3.0,
           "orderShare": 0.1,
+          "attritionRate": 0,
           "spend": 31248.6
         },
         "5月": {
@@ -1875,6 +2072,7 @@
           "visits": 24.0,
           "orders": 6.0,
           "orderShare": 0.16,
+          "attritionRate": 0,
           "spend": 45182.0
         },
         "6月": {
@@ -1884,6 +2082,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "7月": {
@@ -1893,6 +2092,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "8月": {
@@ -1902,6 +2102,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "9月": {
@@ -1911,6 +2112,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "10月": {
@@ -1920,6 +2122,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "11月": {
@@ -1929,6 +2132,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         },
         "12月": {
@@ -1938,6 +2142,7 @@
           "visits": 0,
           "orders": 0,
           "orderShare": 0,
+          "attritionRate": 0,
           "spend": 0
         }
       }
@@ -1951,6 +2156,7 @@
       "visits": 533.0,
       "orders": 141.0,
       "orderShare": 0.1853900709219858,
+      "attritionRate": 0,
       "spend": 663644.7299999999
     },
     "2月": {
@@ -1960,6 +2166,7 @@
       "visits": 286.0,
       "orders": 63.0,
       "orderShare": 0.2853968253968254,
+      "attritionRate": 0,
       "spend": 407620.79999999993
     },
     "3月": {
@@ -1969,6 +2176,7 @@
       "visits": 561.0,
       "orders": 154.0,
       "orderShare": 0.17231168831168833,
+      "attritionRate": 0,
       "spend": 658234.7699999999
     },
     "4月": {
@@ -1978,6 +2186,7 @@
       "visits": 492.0,
       "orders": 148.0,
       "orderShare": 0.12751081081081078,
+      "attritionRate": 0,
       "spend": 618265.4999999999
     },
     "5月": {
@@ -1987,6 +2196,7 @@
       "visits": 443.0,
       "orders": 123.0,
       "orderShare": 0.17653658536585365,
+      "attritionRate": 0,
       "spend": 701064.09
     }
   }

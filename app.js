@@ -3,11 +3,31 @@ const LOCAL_DATA_URL = "./data/dashboard-data.json";
 const POLL_MS = 5000;
 const COLORS = ["#20e3ff", "#4f7cff", "#8f6cff", "#4dffb6", "#ffcc66", "#ff6b8a"];
 const KPI_KEYS = ["liveSessions", "shortVideos", "leads", "visits", "orders", "orderShare"];
+const DISPLAY_METRICS = [
+  "liveSessions",
+  "shortVideos",
+  "leads",
+  "visits",
+  "orders",
+  "visitRate",
+  "closeRate",
+  "leadOrderRate",
+  "orderShare",
+  "attritionRate",
+];
+const DERIVED_LABELS = {
+  visitRate: "线索到店转化率",
+  closeRate: "到店订单转化率",
+  leadOrderRate: "线索订单转化率",
+  attritionRate: "门店离系率",
+};
+const PERCENT_METRICS = new Set(["orderShare", "visitRate", "closeRate", "leadOrderRate", "attritionRate"]);
 
 let state = {
   data: null,
   month: null,
   store: "集团合计",
+  chartMetric: "leads",
   generatedAt: null,
   dataSource: "GitHub 数据仓库",
 };
@@ -16,13 +36,21 @@ const fmt = new Intl.NumberFormat("zh-CN", { maximumFractionDigits: 0 });
 const pctFmt = new Intl.NumberFormat("zh-CN", { style: "percent", maximumFractionDigits: 1 });
 
 function valueText(key, value) {
-  if (key === "orderShare") return pctFmt.format(value || 0);
+  if (PERCENT_METRICS.has(key)) return pctFmt.format(value || 0);
   if (key === "spend") return `¥${fmt.format(value || 0)}`;
   return fmt.format(value || 0);
 }
 
 function metricValue(entity, month, key) {
-  return entity?.monthly?.[month]?.[key] || 0;
+  const values = entity?.monthly?.[month] || {};
+  if (key === "visitRate") return values.leads ? (values.visits || 0) / values.leads : 0;
+  if (key === "closeRate") return values.visits ? (values.orders || 0) / values.visits : 0;
+  if (key === "leadOrderRate") return values.leads ? (values.orders || 0) / values.leads : 0;
+  return values[key] || 0;
+}
+
+function metricLabel(key) {
+  return state.data?.metrics?.[key] || DERIVED_LABELS[key] || key;
 }
 
 function totalsAsEntity(data) {
@@ -60,12 +88,16 @@ function animateNumber(el, target, key) {
 function renderControls() {
   const monthSelect = document.querySelector("#monthSelect");
   const storeSelect = document.querySelector("#storeSelect");
+  const metricSelect = document.querySelector("#metricSelect");
   monthSelect.innerHTML = state.data.months.map((month) => `<option value="${month}">${month}</option>`).join("");
   monthSelect.value = state.month;
 
   const stores = ["集团合计", ...state.data.stores.map((item) => item.name)];
   storeSelect.innerHTML = stores.map((name) => `<option value="${name}">${name}</option>`).join("");
   storeSelect.value = state.store;
+
+  metricSelect.innerHTML = DISPLAY_METRICS.map((key) => `<option value="${key}">${metricLabel(key)}</option>`).join("");
+  metricSelect.value = state.chartMetric;
 }
 
 function renderKpis() {
@@ -90,20 +122,22 @@ function renderKpis() {
 
 function renderBars() {
   const scene = document.querySelector("#barScene");
+  const metric = state.chartMetric;
+  document.querySelector("#barTitle").textContent = `门店${state.month}${metricLabel(metric)}排行`;
   const ranked = state.data.stores
     .map((store) => ({
       name: store.name,
-      leads: metricValue(store, state.month, "leads"),
+      value: metricValue(store, state.month, metric),
       orders: metricValue(store, state.month, "orders"),
     }))
-    .sort((a, b) => b.leads - a.leads)
+    .sort((a, b) => b.value - a.value)
     .slice(0, 12);
-  const max = Math.max(...ranked.map((item) => item.leads), 1);
+  const max = Math.max(...ranked.map((item) => item.value), PERCENT_METRICS.has(metric) ? 0.01 : 1);
   scene.innerHTML = ranked.map((item, index) => {
-    const height = Math.max(22, (item.leads / max) * 265);
+    const height = Math.max(22, (item.value / max) * 265);
     const accent = COLORS[index % COLORS.length];
     return `
-      <div class="bar-wrap" title="${item.name} ${fmt.format(item.leads)} 线索">
+      <div class="bar-wrap" title="${item.name} ${valueText(metric, item.value)} ${metricLabel(metric)}">
         <div class="bar" style="--h:${height}px;--accent:${accent};animation-delay:${index * 55}ms">
           <i class="bar-face front"></i>
           <i class="bar-face back"></i>
@@ -111,7 +145,7 @@ function renderBars() {
           <i class="bar-face right"></i>
           <i class="bar-face top"></i>
         </div>
-        <div class="bar-label">${item.name}<br>${fmt.format(item.leads)}</div>
+        <div class="bar-label">${item.name}<br>${valueText(metric, item.value)}</div>
       </div>
     `;
   }).join("");
@@ -218,9 +252,11 @@ function renderTrend() {
   const height = 300;
   const pad = 38;
   const months = state.data.months;
-  const leads = months.map((month) => metricValue(entity, month, "leads"));
-  const orders = months.map((month) => metricValue(entity, month, "orders") * 80);
-  const leadPts = chartPoints(leads, width, height, pad);
+  const metric = state.chartMetric;
+  document.querySelector("#trendTitle").textContent = `${state.store}${metricLabel(metric)}月度变化趋势`;
+  const primary = months.map((month) => metricValue(entity, month, metric));
+  const orders = months.map((month) => metricValue(entity, month, "orders") * (PERCENT_METRICS.has(metric) ? 0.01 : 80));
+  const leadPts = chartPoints(primary, width, height, pad);
   const orderPts = chartPoints(orders, width, height, pad);
   const line = (pts) => pts.map(([x, y], index) => `${index ? "L" : "M"} ${x} ${y}`).join(" ");
   const area = (pts) => `${line(pts)} L ${pts.at(-1)[0]} ${height - pad} L ${pts[0][0]} ${height - pad} Z`;
@@ -257,10 +293,12 @@ function renderTrend() {
 function renderTable() {
   const rows = document.querySelector("#storeRows");
   const prev = state.data.previousMonth;
+  const metric = state.chartMetric;
   rows.innerHTML = state.data.stores.map((store) => {
     const m = store.monthly[state.month];
-    const prevOrders = prev ? metricValue(store, prev, "orders") : 0;
-    const rate = changeRate(m.orders, prevOrders);
+    const current = metricValue(store, state.month, metric);
+    const previous = prev ? metricValue(store, prev, metric) : 0;
+    const rate = changeRate(current, previous);
     return `
       <tr>
         <td>${store.name}</td>
@@ -270,7 +308,7 @@ function renderTable() {
         <td>${valueText("visits", m.visits)}</td>
         <td>${valueText("orders", m.orders)}</td>
         <td>${valueText("orderShare", m.orderShare)}</td>
-        <td class="${rate < 0 ? "kpi-change down" : "kpi-change"}">${prev ? `${rate >= 0 ? "+" : ""}${pctFmt.format(rate)}` : "-"}</td>
+        <td class="${rate < 0 ? "kpi-change down" : "kpi-change"}">${valueText(metric, current)} / ${prev ? `${rate >= 0 ? "+" : ""}${pctFmt.format(rate)}` : "-"}</td>
       </tr>
     `;
   }).join("");
@@ -301,6 +339,7 @@ async function loadData() {
     state.data = data;
     state.generatedAt = data.generatedAt;
     state.month = state.month && data.months.includes(state.month) ? state.month : data.latestMonth;
+    state.chartMetric = DISPLAY_METRICS.includes(state.chartMetric) ? state.chartMetric : "leads";
     const storeNames = new Set(["集团合计", ...data.stores.map((store) => store.name)]);
     state.store = storeNames.has(state.store) ? state.store : "集团合计";
     document.querySelector("#syncBadge").textContent = `已同步 ${data.generatedAt.replace("T", " ")}`;
@@ -319,6 +358,11 @@ document.querySelector("#monthSelect").addEventListener("change", (event) => {
 
 document.querySelector("#storeSelect").addEventListener("change", (event) => {
   state.store = event.target.value;
+  renderAll();
+});
+
+document.querySelector("#metricSelect").addEventListener("change", (event) => {
+  state.chartMetric = event.target.value;
   renderAll();
 });
 

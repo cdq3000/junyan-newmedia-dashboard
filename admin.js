@@ -3,7 +3,6 @@ const DATA_PATH = "data/dashboard-data.json";
 const REMOTE_DATA_URL = `https://raw.githubusercontent.com/${REPO}/main/${DATA_PATH}`;
 const LOCAL_DATA_URL = "./data/dashboard-data.json";
 const ACCESS_CODE = "JUNYAN-2026";
-const METRIC_KEYS = ["liveSessions", "shortVideos", "leads", "visits", "orders", "orderShare"];
 const ZERO_METRICS = {
   liveSessions: 0,
   shortVideos: 0,
@@ -11,6 +10,7 @@ const ZERO_METRICS = {
   visits: 0,
   orders: 0,
   orderShare: 0,
+  attritionRate: 0,
   spend: 0,
 };
 
@@ -31,6 +31,10 @@ function clone(value) {
 
 function metricLabel(key) {
   return state.data?.metrics?.[key] || key;
+}
+
+function rate(numerator, denominator) {
+  return denominator ? numerator / denominator : 0;
 }
 
 function activeStore() {
@@ -136,6 +140,9 @@ function renderTable() {
         <td>${fmt.format(m.visits || 0)}</td>
         <td>${fmt.format(m.orders || 0)}</td>
         <td>${pct.format(m.orderShare || 0)}</td>
+        <td>${pct.format(rate(m.visits || 0, m.leads || 0))}</td>
+        <td>${pct.format(rate(m.orders || 0, m.visits || 0))}</td>
+        <td>${pct.format(m.attritionRate || 0)}</td>
       </tr>
     `;
   }).join("");
