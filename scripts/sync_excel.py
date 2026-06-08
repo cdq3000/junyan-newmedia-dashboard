@@ -117,6 +117,48 @@ def read_monthly_sheet(wb, stores: dict[str, dict[str, Any]]) -> None:
     read_metric_block(ws, stores, 22, 15, "visits")
 
 
+def read_summary_month_blocks(wb, stores: dict[str, dict[str, Any]]) -> None:
+    import re
+
+    ws = wb.worksheets[2]
+    # Month blocks start after the cumulative "1月-6月" block. In the current
+    # workbook each block starts at row 2 with a header like:
+    # "统计周期：1月1日-31日..." or "6月1日-7日（累计7天）".
+    mapping = {
+        "spend": 2,
+        "liveSessions": 3,
+        "shortVideos": 4,
+        "leads": 5,
+        "visits": 15,
+        "orders": 16,
+        "orderShare": 19,
+    }
+    month_blocks: list[tuple[str, int]] = []
+    for col in range(3, ws.max_column + 1):
+        raw = ws.cell(row=2, column=col).value
+        text = "" if raw is None else str(raw).strip()
+        if not text:
+            continue
+        if "-" in text and text.startswith("1月"):
+            continue
+        match = re.search(r"(\d{1,2})月", text)
+        if match:
+            month_blocks.append((f"{int(match.group(1))}月", col))
+
+    for month, start_col in month_blocks:
+        for row in range(5, ws.max_row + 1):
+            name = norm_store(ws.cell(row=row, column=2).value)
+            if not name:
+                continue
+            if name == "合计":
+                break
+            store = ensure_store(stores, name)
+            for metric, offset in mapping.items():
+                value = num(ws.cell(row=row, column=start_col + offset).value)
+                if value is not None:
+                    store["monthly"][month][metric] = value
+
+
 def read_detail_sheet(wb, stores: dict[str, dict[str, Any]]) -> None:
     ws = wb.worksheets[7]
     current_store = None
@@ -196,7 +238,7 @@ def build_payload(excel_path: Path) -> dict[str, Any]:
     stores: dict[str, dict[str, Any]] = {}
     read_monthly_sheet(wb, stores)
     read_detail_sheet(wb, stores)
-    read_latest_summary_sheet(wb, stores)
+    read_summary_month_blocks(wb, stores)
 
     ordered = sorted(
         stores.values(),

@@ -698,6 +698,42 @@ function readLatestSummarySheet(workbook, payload) {
   }
 }
 
+function readSummaryMonthBlocks(workbook, payload) {
+  const sheet = workbook.Sheets["总表-数据收集"] || workbook.Sheets[workbook.SheetNames[2]];
+  if (!sheet) throw new Error("没有找到 总表-数据收集 工作表");
+  const mapping = {
+    spend: 2,
+    liveSessions: 3,
+    shortVideos: 4,
+    leads: 5,
+    visits: 15,
+    orders: 16,
+    orderShare: 19,
+  };
+  const monthBlocks = [];
+  for (let col = 3; col <= 220; col += 1) {
+    const text = String(sheetCell(sheet, 2, col) || "").trim();
+    if (!text) continue;
+    if (text.startsWith("1月") && text.includes("-")) continue;
+    const match = text.match(/(\d{1,2})月/);
+    if (match) monthBlocks.push({ month: `${Number(match[1])}月`, startCol: col });
+  }
+  monthBlocks.forEach(({ month, startCol }) => {
+    if (!payload.months.includes(month)) payload.months.push(month);
+    for (let row = 5; row <= 80; row += 1) {
+      const name = normalizeStoreName(sheetCell(sheet, row, 2));
+      if (!name) continue;
+      if (name === "合计") break;
+      const store = ensurePayloadStore(payload, name);
+      ensureMonth(store, month);
+      Object.entries(mapping).forEach(([metric, offset]) => {
+        const value = numeric(sheetCell(sheet, row, startCol + offset));
+        if (value !== null) store.monthly[month][metric] = value;
+      });
+    }
+  });
+}
+
 function buildPayloadFromWorkbook(workbook, fileName) {
   const payload = {
     title: "骏延集团新媒体数据",
@@ -721,7 +757,7 @@ function buildPayloadFromWorkbook(workbook, fileName) {
   };
   readMonthlyComparison(workbook, payload);
   readDetailSheet(workbook, payload);
-  readLatestSummarySheet(workbook, payload);
+  readSummaryMonthBlocks(workbook, payload);
   payload.months = [...new Set(payload.months)]
     .filter((month) => payload.stores.some((store) => Object.values(store.monthly?.[month] || {}).some(Boolean)))
     .sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
