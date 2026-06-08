@@ -1,5 +1,6 @@
 const REPO = "cdq3000/junyan-newmedia-dashboard";
 const DATA_PATH = "data/dashboard-data.json";
+const SOURCE_EXCEL_PATH = "data/source.xlsx";
 const REMOTE_DATA_URL = `https://raw.githubusercontent.com/${REPO}/main/${DATA_PATH}`;
 const LOCAL_DATA_URL = "./data/dashboard-data.json";
 const ACCESS_CODE = "JUNYAN-2026";
@@ -52,6 +53,7 @@ let state = {
   store: null,
   workbookPreview: null,
   previewSheet: null,
+  excelUpload: null,
 };
 
 const fmt = new Intl.NumberFormat("zh-CN", { maximumFractionDigits: 0 });
@@ -397,6 +399,17 @@ function toBase64Utf8(text) {
   return btoa(binary);
 }
 
+function arrayBufferToBase64(buffer) {
+  const bytes = new Uint8Array(buffer);
+  let binary = "";
+  const chunkSize = 0x8000;
+  for (let index = 0; index < bytes.length; index += chunkSize) {
+    const chunk = bytes.subarray(index, index + chunkSize);
+    binary += String.fromCharCode(...chunk);
+  }
+  return btoa(binary);
+}
+
 async function readGitHubError(response) {
   let details = "";
   try {
@@ -443,6 +456,13 @@ async function getRemoteDataFile(headers) {
   return current.json();
 }
 
+async function getRemoteFile(headers, path) {
+  const response = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}?ref=main`, { headers });
+  if (response.status === 404) return null;
+  if (!response.ok) throw new Error(await readGitHubError(response));
+  return response.json();
+}
+
 async function updateRemoteDataFile(headers, token) {
   const info = await getRemoteDataFile(headers);
   const body = {
@@ -473,6 +493,39 @@ async function dispatchPagesWorkflow(headers) {
   }
 }
 
+async function dispatchDataSyncWorkflow(headers) {
+  const response = await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/sync-data.yml/dispatches`, {
+    method: "POST",
+    headers: { ...headers, "Content-Type": "application/json" },
+    body: JSON.stringify({ ref: "main" }),
+  });
+  if (!response.ok && response.status !== 204) {
+    throw new Error(await readGitHubError(response));
+  }
+}
+
+async function uploadSourceExcel(headers) {
+  if (!state.excelUpload) {
+    throw new Error("没有待发布的 Excel 文件，请先导入 .xlsx 总表。");
+  }
+  const info = await getRemoteFile(headers, SOURCE_EXCEL_PATH);
+  const body = {
+    message: `Upload source Excel ${state.excelUpload.name}`,
+    content: state.excelUpload.content,
+    branch: "main",
+  };
+  if (info?.sha) body.sha = info.sha;
+  const response = await fetch(`https://api.github.com/repos/${REPO}/contents/${SOURCE_EXCEL_PATH}`, {
+    method: "PUT",
+    headers: { ...headers, "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!response.ok) {
+    throw new Error(await readGitHubError(response));
+  }
+  return response.json();
+}
+
 async function publishToGitHub() {
   saveCurrentStore();
   const token = document.querySelector("#githubToken").value.trim() || sessionStorage.getItem("junyanGithubToken");
@@ -488,14 +541,21 @@ async function publishToGitHub() {
   };
   setStatus("正在校验 GitHub token...");
   await validateGitHubToken(headers);
-  setStatus("正在发布数据到 GitHub...");
-  await updateRemoteDataFile(headers, token);
-  setStatus("正在刷新前台部署...");
-  await dispatchPagesWorkflow(headers);
+  if (state.excelUpload) {
+    setStatus("正在上传 Excel 原文件...");
+    await uploadSourceExcel(headers);
+    setStatus("正在触发后台解析同步...");
+    await dispatchDataSyncWorkflow(headers);
+  } else {
+    setStatus("正在发布数据到 GitHub...");
+    await updateRemoteDataFile(headers, token);
+    setStatus("正在刷新前台部署...");
+    await dispatchPagesWorkflow(headers);
+  }
   localStorage.removeItem("junyanAdminDraft");
   setDirty(false);
-  setStatus("已发布到 GitHub，前台约 5-30 秒刷新");
-  alert("发布成功，前台大屏会自动读取最新数据。");
+  setStatus(state.excelUpload ? "Excel 已上传，GitHub 正在后台解析，约 1-3 分钟同步前台" : "已发布到 GitHub，前台约 5-30 秒刷新");
+  alert(state.excelUpload ? "Excel 已上传成功。后台会自动解析并更新前台，通常需要 1-3 分钟。" : "发布成功，前台大屏会自动读取最新数据。");
 }
 
 function importJsonFile(file) {
@@ -503,6 +563,7 @@ function importJsonFile(file) {
   reader.onload = () => {
     try {
       state.data = JSON.parse(reader.result);
+      state.excelUpload = null;
       state.month = state.data.latestMonth || state.data.months.at(-1);
       state.store = state.data.stores[0]?.name || null;
       recalcTotals();
@@ -685,13 +746,21 @@ function importExcelFile(file) {
       const workbook = XLSX.read(reader.result, { type: "array", cellDates: false });
       state.workbookPreview = workbookToPreview(workbook);
       state.previewSheet = workbook.SheetNames[0];
-      state.data = buildPayloadFromWorkbook(workbook, file.name);
-      state.month = state.data.months.at(-1);
-      state.store = state.data.stores[0]?.name || null;
-      recalcTotals();
+      state.excelUpload = {
+        name: file.name,
+        content: arrayBufferToBase64(reader.result),
+      };
+      try {
+        state.data = buildPayloadFromWorkbook(workbook, file.name);
+        state.month = state.data.months.at(-1);
+        state.store = state.data.stores[0]?.name || null;
+        recalcTotals();
+      } catch (parseError) {
+        console.warn("Browser preview parse failed; server sync will parse Excel.", parseError);
+      }
       setDirty(true);
       renderAll();
-      setStatus(`已导入 Excel：${file.name}`);
+      setStatus(`已导入 Excel：${file.name}。发布时将上传原文件，由 GitHub Actions 后台解析。`);
     } catch (error) {
       alert(`Excel 导入失败：${error.message}`);
     }
