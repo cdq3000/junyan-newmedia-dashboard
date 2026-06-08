@@ -49,9 +49,9 @@
         <article class="card upload-card">
           <h2>导入 / 覆盖</h2>
           <label class="file-drop">
-            <input id="jsonFile" type="file" accept="application/json,.json" />
-            <strong>导入 JSON</strong>
-            <span>适合由 Excel 同步脚本生成后上传覆盖</span>
+            <input id="dataFile" type="file" accept=".xlsx,.xls,application/json,.json" />
+            <strong>导入 Excel / JSON</strong>
+            <span>可直接拖入月度 Excel 表，或导入 dashboard-data.json</span>
           </label>
           <button id="resetRemoteBtn" type="button">重新读取线上数据</button>
         </article>
@@ -126,6 +126,7 @@
       </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <script src="./admin.js"></script>
   </body>
 </html>

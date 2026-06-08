@@ -25,7 +25,7 @@ JUNYAN-2026
 - 新增月份
 - 新增、重命名、删除门店
 - 编辑直播场次、短视频发布、总线索量、邀约到店、新媒体订单、新媒体订单占零售占比
-- 导入/导出 `dashboard-data.json`
+- 直接导入 `.xlsx/.xls` 月度 Excel 表，或导入/导出 `dashboard-data.json`
 - 使用 GitHub token 发布数据到仓库
 
 ## 多人协作更新
@@ -41,7 +41,7 @@ JUNYAN-2026
 
 ## Excel 同步
 
-本地仍可用 Excel 同步脚本生成 JSON：
+后台可以直接导入 Excel。保留本地脚本是为了批量自动化或离线校验：
 
 ```powershell
 & 'C:\Users\lala\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' .\scripts\sync_excel.py
@@ -53,4 +53,4 @@ JUNYAN-2026
 & 'C:\Users\lala\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' .\scripts\sync_excel.py --watch
 ```
 
-生成后可进入后台导入 `data/dashboard-data.json`，再点击“发布到 GitHub”。
+生成后也可进入后台导入 `data/dashboard-data.json`，再点击“发布到 GitHub”。

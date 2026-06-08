@@ -14,6 +14,36 @@ const ZERO_METRICS = {
   spend: 0,
 };
 
+const NAME_ALIASES = {
+  花都建设北零跑: "花都零跑",
+  清远港鸿: "清远港鸿零跑",
+  清远奇晟: "清远奇晟零跑",
+  清远英德: "清远英德零跑",
+  广花店: "广花零跑",
+  北站店: "北站零跑",
+  从化零跑: "广花零跑",
+};
+
+const STORE_ORDER = [
+  "花都广本",
+  "清远广本",
+  "汕头广本",
+  "鑫海广本",
+  "花都零跑",
+  "白云零跑",
+  "清远港鸿零跑",
+  "清远奇晟零跑",
+  "清远英德零跑",
+  "河源零跑",
+  "汕头零跑",
+  "广花零跑",
+  "北站零跑",
+  "清远极氪",
+  "清远智己",
+  "江门大众",
+  "花都传祺",
+];
+
 let state = {
   unlocked: false,
   dirty: false,
@@ -48,9 +78,35 @@ function normalizeMonthName(input) {
   return raw.endsWith("月") ? raw : `${raw}月`;
 }
 
+function normalizeStoreName(value) {
+  const name = String(value || "").trim();
+  if (!name) return null;
+  return NAME_ALIASES[name] || name;
+}
+
+function numeric(value) {
+  if (value === null || value === undefined || value === "") return null;
+  if (typeof value === "string" && value.startsWith("#")) return null;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
 function ensureMonth(store, month) {
   store.monthly ||= {};
   store.monthly[month] ||= clone(ZERO_METRICS);
+}
+
+function ensurePayloadStore(payload, name) {
+  let store = payload.stores.find((item) => item.name === name);
+  if (!store) {
+    store = {
+      name,
+      monthly: Object.fromEntries(payload.months.map((month) => [month, clone(ZERO_METRICS)])),
+    };
+    payload.stores.push(store);
+  }
+  payload.months.forEach((month) => ensureMonth(store, month));
+  return store;
 }
 
 function recalcTotals() {
@@ -328,6 +384,148 @@ function importJsonFile(file) {
   reader.readAsText(file, "utf-8");
 }
 
+function sheetCell(sheet, row, col) {
+  const address = XLSX.utils.encode_cell({ r: row - 1, c: col - 1 });
+  return sheet[address]?.v ?? null;
+}
+
+function readMonthHeaders(sheet, row, startCol) {
+  return Array.from({ length: 12 }, (_, index) => normalizeMonthName(sheetCell(sheet, row, startCol + index)) || `${index + 1}月`);
+}
+
+function readMetricBlock(sheet, payload, titleRow, startCol, metric) {
+  const months = readMonthHeaders(sheet, titleRow + 1, startCol + 1);
+  months.forEach((month) => {
+    if (!payload.months.includes(month)) payload.months.push(month);
+  });
+  let row = titleRow + 2;
+  while (row < titleRow + 80) {
+    const name = normalizeStoreName(sheetCell(sheet, row, startCol));
+    if (!name) break;
+    const store = ensurePayloadStore(payload, name);
+    months.forEach((month, index) => {
+      const value = numeric(sheetCell(sheet, row, startCol + 1 + index));
+      if (value !== null) {
+        ensureMonth(store, month);
+        store.monthly[month][metric] = value;
+      }
+    });
+    row += 1;
+  }
+}
+
+function readMonthlyComparison(workbook, payload) {
+  const sheet = workbook.Sheets["2026月度数据对比"] || workbook.Sheets[workbook.SheetNames[6]];
+  if (!sheet) throw new Error("没有找到 2026月度数据对比 工作表");
+  readMetricBlock(sheet, payload, 1, 1, "orders");
+  readMetricBlock(sheet, payload, 1, 15, "orderShare");
+  readMetricBlock(sheet, payload, 22, 1, "leads");
+  readMetricBlock(sheet, payload, 22, 15, "visits");
+}
+
+function readDetailSheet(workbook, payload) {
+  const sheet = workbook.Sheets["数据明细"] || workbook.Sheets[workbook.SheetNames[7]];
+  if (!sheet) throw new Error("没有找到 数据明细 工作表");
+  const months = Array.from({ length: 5 }, (_, index) => normalizeMonthName(sheetCell(sheet, 1, 5 + index)) || `${index + 1}月`);
+  months.forEach((month) => {
+    if (!payload.months.includes(month)) payload.months.push(month);
+  });
+  const metricMap = {
+    直播场次: "liveSessions",
+    短视频发布: "shortVideos",
+    投流费用: "spend",
+  };
+  let currentStore = null;
+  for (let row = 2; row <= 260; row += 1) {
+    const storeName = normalizeStoreName(sheetCell(sheet, row, 2));
+    if (storeName) currentStore = storeName;
+    const metricName = String(sheetCell(sheet, row, 4) || "").trim();
+    const metric = metricMap[metricName];
+    if (!currentStore || !metric) continue;
+    const store = ensurePayloadStore(payload, currentStore);
+    months.forEach((month, index) => {
+      const value = numeric(sheetCell(sheet, row, 5 + index));
+      if (value !== null) {
+        ensureMonth(store, month);
+        store.monthly[month][metric] = value;
+      }
+    });
+  }
+}
+
+function buildPayloadFromWorkbook(workbook, fileName) {
+  const payload = {
+    title: "骏延集团新媒体数据",
+    sourceFile: fileName,
+    generatedAt: new Date().toISOString().slice(0, 19),
+    months: [],
+    latestMonth: null,
+    previousMonth: null,
+    metrics: {
+      liveSessions: "直播场次",
+      shortVideos: "短视频发布",
+      leads: "总线索量",
+      visits: "邀约到店",
+      orders: "新媒体订单",
+      orderShare: "新媒体订单占零售占比",
+      attritionRate: "门店离系率",
+      spend: "投流费用",
+    },
+    stores: [],
+    totals: {},
+  };
+  readMonthlyComparison(workbook, payload);
+  readDetailSheet(workbook, payload);
+  payload.months = [...new Set(payload.months)]
+    .filter((month) => payload.stores.some((store) => Object.values(store.monthly?.[month] || {}).some(Boolean)))
+    .sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
+  payload.stores.sort((a, b) => {
+    const ai = STORE_ORDER.includes(a.name) ? STORE_ORDER.indexOf(a.name) : 999;
+    const bi = STORE_ORDER.includes(b.name) ? STORE_ORDER.indexOf(b.name) : 999;
+    return ai - bi || a.name.localeCompare(b.name, "zh-Hans-CN");
+  });
+  payload.stores.forEach((store) => {
+    payload.months.forEach((month) => ensureMonth(store, month));
+  });
+  return payload;
+}
+
+function importExcelFile(file) {
+  if (!window.XLSX) {
+    alert("Excel 解析库没有加载成功，请刷新页面后重试。");
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const workbook = XLSX.read(reader.result, { type: "array", cellDates: false });
+      state.data = buildPayloadFromWorkbook(workbook, file.name);
+      state.month = state.data.months.at(-1);
+      state.store = state.data.stores[0]?.name || null;
+      recalcTotals();
+      setDirty(true);
+      renderAll();
+      setStatus(`已导入 Excel：${file.name}`);
+    } catch (error) {
+      alert(`Excel 导入失败：${error.message}`);
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function importDataFile(file) {
+  const lower = file.name.toLowerCase();
+  if (lower.endsWith(".json")) {
+    importJsonFile(file);
+    return;
+  }
+  if (lower.endsWith(".xlsx") || lower.endsWith(".xls")) {
+    importExcelFile(file);
+    return;
+  }
+  alert("请导入 .xlsx、.xls 或 .json 文件");
+}
+
 document.querySelector("#unlockBtn").addEventListener("click", () => {
   const code = document.querySelector("#accessCode").value.trim();
   if (code !== ACCESS_CODE) {
@@ -358,9 +556,9 @@ document.querySelector("#resetRemoteBtn").addEventListener("click", async () => 
   localStorage.removeItem("junyanAdminDraft");
   await loadData();
 });
-document.querySelector("#jsonFile").addEventListener("change", (event) => {
+document.querySelector("#dataFile").addEventListener("change", (event) => {
   const file = event.target.files?.[0];
-  if (file) importJsonFile(file);
+  if (file) importDataFile(file);
 });
 
 document.querySelectorAll("[data-metric]").forEach((input) => {
