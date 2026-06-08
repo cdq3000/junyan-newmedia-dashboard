@@ -1,4 +1,5 @@
-const DATA_URL = "./data/dashboard-data.json";
+const REMOTE_DATA_URL = "https://raw.githubusercontent.com/cdq3000/junyan-newmedia-dashboard/main/data/dashboard-data.json";
+const LOCAL_DATA_URL = "./data/dashboard-data.json";
 const POLL_MS = 5000;
 const COLORS = ["#20e3ff", "#4f7cff", "#8f6cff", "#4dffb6", "#ffcc66", "#ff6b8a"];
 const KPI_KEYS = ["liveSessions", "shortVideos", "leads", "visits", "orders", "orderShare"];
@@ -8,7 +9,7 @@ let state = {
   month: null,
   store: "集团合计",
   generatedAt: null,
-  customStores: JSON.parse(localStorage.getItem("junyanCustomStores") || "[]"),
+  dataSource: "GitHub 数据仓库",
 };
 
 const fmt = new Intl.NumberFormat("zh-CN", { maximumFractionDigits: 0 });
@@ -275,17 +276,6 @@ function renderTable() {
   }).join("");
 }
 
-function applyCustomStores(data) {
-  const existing = new Set(data.stores.map((store) => store.name));
-  state.customStores.forEach((name) => {
-    if (existing.has(name)) return;
-    data.stores.push({
-      name,
-      monthly: Object.fromEntries(data.months.map((month) => [month, Object.fromEntries(Object.keys(data.metrics).map((key) => [key, 0]))])),
-    });
-  });
-}
-
 function renderAll() {
   if (!state.data) return;
   renderControls();
@@ -299,10 +289,14 @@ function renderAll() {
 
 async function loadData() {
   try {
-    const response = await fetch(`${DATA_URL}?t=${Date.now()}`);
+    let response = await fetch(`${REMOTE_DATA_URL}?t=${Date.now()}`, { cache: "no-store" });
+    state.dataSource = "GitHub raw 实时数据";
+    if (!response.ok) {
+      response = await fetch(`${LOCAL_DATA_URL}?t=${Date.now()}`, { cache: "no-store" });
+      state.dataSource = "本地数据文件";
+    }
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
-    applyCustomStores(data);
     if (data.generatedAt === state.generatedAt && state.data) return;
     state.data = data;
     state.generatedAt = data.generatedAt;
@@ -310,6 +304,7 @@ async function loadData() {
     const storeNames = new Set(["集团合计", ...data.stores.map((store) => store.name)]);
     state.store = storeNames.has(state.store) ? state.store : "集团合计";
     document.querySelector("#syncBadge").textContent = `已同步 ${data.generatedAt.replace("T", " ")}`;
+    document.querySelector("#dataSourceLabel").textContent = state.dataSource;
     renderAll();
   } catch (error) {
     document.querySelector("#syncBadge").textContent = "等待数据同步";
@@ -325,25 +320,6 @@ document.querySelector("#monthSelect").addEventListener("change", (event) => {
 document.querySelector("#storeSelect").addEventListener("change", (event) => {
   state.store = event.target.value;
   renderAll();
-});
-
-const dialog = document.querySelector("#storeDialog");
-document.querySelector("#addStoreBtn").addEventListener("click", () => dialog.showModal());
-document.querySelector("#storeForm").addEventListener("submit", (event) => {
-  if (event.submitter?.value !== "add") return;
-  const input = document.querySelector("#newStoreName");
-  const name = input.value.trim();
-  if (!name) return;
-  if (!state.customStores.includes(name)) {
-    state.customStores.push(name);
-    localStorage.setItem("junyanCustomStores", JSON.stringify(state.customStores));
-  }
-  input.value = "";
-  state.store = name;
-  if (state.data) {
-    applyCustomStores(state.data);
-    renderAll();
-  }
 });
 
 loadData();

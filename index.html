@@ -12,9 +12,10 @@
         <section>
           <p class="eyebrow">Junyan Group New Media Command Center</p>
           <h1>骏延集团新媒体数据</h1>
-          <p class="subtitle">月度经营监控 / 门店表现 / 线索到店订单转化</p>
+          <p class="subtitle">集团经营驾驶舱 / 门店绩效矩阵 / 新媒体线索转化链路</p>
         </section>
         <section class="toolbar">
+          <a class="admin-link" href="./admin.html">数据管理后台</a>
           <label class="select-wrap">
             <span>月份</span>
             <select id="monthSelect"></select>
@@ -23,9 +24,24 @@
             <span>门店</span>
             <select id="storeSelect"></select>
           </label>
-          <button id="addStoreBtn" class="ghost-button" type="button">新增门店</button>
+          <a class="ghost-button inline-action" href="./admin.html#stores">维护门店</a>
         </section>
       </header>
+
+      <section class="command-frame">
+        <div>
+          <span>数据来源</span>
+          <strong id="dataSourceLabel">GitHub 数据仓库</strong>
+        </div>
+        <div>
+          <span>更新路径</span>
+          <strong>后台录入 / Excel 同步 / JSON 发布</strong>
+        </div>
+        <div>
+          <span>协作方式</span>
+          <strong>每位同事使用自己的 GitHub 写入令牌</strong>
+        </div>
+      </section>
 
       <section id="kpiGrid" class="kpi-grid" aria-label="关键指标"></section>
 
@@ -94,17 +110,6 @@
         </article>
       </section>
     </main>
-
-    <dialog id="storeDialog" class="store-dialog">
-      <form method="dialog" id="storeForm">
-        <h3>新增门店</h3>
-        <input id="newStoreName" name="storeName" placeholder="输入门店名称" autocomplete="off" />
-        <menu>
-          <button value="cancel" type="submit">取消</button>
-          <button value="add" class="primary-button" type="submit">添加</button>
-        </menu>
-      </form>
-    </dialog>
 
     <script src="./app.js"></script>
   </body>

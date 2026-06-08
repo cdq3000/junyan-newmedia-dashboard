@@ -139,6 +139,25 @@ button {
   font-weight: 700;
 }
 
+.admin-link,
+.inline-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.admin-link {
+  align-self: end;
+  color: #061225;
+  background: linear-gradient(135deg, var(--green), var(--cyan));
+  box-shadow: 0 0 28px rgba(32, 227, 255, 0.24);
+}
+
 .ghost-button,
 .primary-button {
   align-self: end;
@@ -148,6 +167,35 @@ button {
 
 .primary-button {
   background: linear-gradient(135deg, var(--cyan), var(--blue));
+}
+
+.command-frame {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 16px 0;
+  overflow: hidden;
+  border: 1px solid rgba(94, 144, 255, 0.24);
+  border-radius: 8px;
+  background: rgba(94, 144, 255, 0.16);
+}
+
+.command-frame div {
+  min-height: 74px;
+  padding: 16px 18px;
+  background: rgba(7, 12, 32, 0.76);
+}
+
+.command-frame span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.command-frame strong {
+  color: #e9f4ff;
+  font-size: clamp(14px, 1.4vw, 18px);
 }
 
 .kpi-grid {

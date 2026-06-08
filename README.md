@@ -1,44 +1,56 @@
-# 骏延集团新媒体数据 3D 可视化大屏
+# 骏延集团新媒体数据管理系统
 
-## 本地运行
+## 页面入口
 
-1. 同步 Excel 到页面数据：
+前台大屏：
+
+```text
+https://cdq3000.github.io/junyan-newmedia-dashboard/
+```
+
+数据管理后台：
+
+```text
+https://cdq3000.github.io/junyan-newmedia-dashboard/admin.html
+```
+
+管理口令：
+
+```text
+JUNYAN-2026
+```
+
+## 后台能做什么
+
+- 新增月份
+- 新增、重命名、删除门店
+- 编辑直播场次、短视频发布、总线索量、邀约到店、新媒体订单、新媒体订单占零售占比
+- 导入/导出 `dashboard-data.json`
+- 使用 GitHub token 发布数据到仓库
+
+## 多人协作更新
+
+1. 每位同事创建自己的 fine-grained GitHub token。
+2. token 只授权 `cdq3000/junyan-newmedia-dashboard` 仓库。
+3. 权限只给 `Contents: Read and write`。
+4. 同事进入后台，输入管理口令和自己的 token。
+5. 修改数据后点击“发布到 GitHub”。
+6. 前台大屏每 5 秒读取 GitHub raw 数据源，通常 5-30 秒内显示更新。
+
+不要把 GitHub token 固定写进网页源码。这个站点是公开 GitHub Pages，源码也公开；如果把 token 写进去，任何人都能拿到仓库写入权限。
+
+## Excel 同步
+
+本地仍可用 Excel 同步脚本生成 JSON：
 
 ```powershell
 & 'C:\Users\lala\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' .\scripts\sync_excel.py
 ```
 
-2. 启动本地网页服务：
-
-```powershell
-& 'C:\Users\lala\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m http.server 8765
-```
-
-3. 打开：
-
-```text
-http://localhost:8765
-```
-
-## 每周更新
-
-如果 Excel 文件仍放在桌面且文件名不变，运行监听模式：
+监听 Excel 文件变化：
 
 ```powershell
 & 'C:\Users\lala\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' .\scripts\sync_excel.py --watch
 ```
 
-脚本每 5 秒检查一次 Excel 修改时间，发现更新后自动重建 `data/dashboard-data.json`。网页也会每 5 秒重新读取 JSON，因此打开页面时会自动刷新数据。
-
-## 新增门店
-
-- 如果新门店写进 Excel 的月度对比表或数据明细表，运行同步脚本后会自动进入页面。
-- 页面右上角的“新增门店”用于临时添加空门店，保存在当前浏览器的 `localStorage`，适合先占位。
-
-## GitHub 发布
-
-这个项目是纯静态页面，可以发布到 GitHub Pages。需要你提供：
-
-- GitHub 仓库地址，或允许我创建新仓库。
-- 是否要我创建分支、提交并打开 PR。
-- 如果需要自动化周更，需要选择数据来源：继续手动上传 Excel 后本地同步，或把 Excel/JSON 提交到仓库并用 GitHub Actions 生成页面数据。
+生成后可进入后台导入 `data/dashboard-data.json`，再点击“发布到 GitHub”。
