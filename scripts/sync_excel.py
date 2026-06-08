@@ -29,7 +29,7 @@ NAME_ALIASES = {
     "清远英德": "清远英德零跑",
     "广花店": "广花零跑",
     "北站店": "北站零跑",
-    "从化零跑": "广花零跑",
+    "花都北站零跑": "北站零跑",
 }
 
 STORE_ORDER = [
@@ -50,6 +50,7 @@ STORE_ORDER = [
     "清远智己",
     "江门大众",
     "花都传祺",
+    "从化零跑",
 ]
 
 
@@ -146,8 +147,8 @@ def read_detail_sheet(wb, stores: dict[str, dict[str, Any]]) -> None:
         store = ensure_store(stores, current_store)
         for month, col in month_cols:
             value = num(ws.cell(row=row, column=col).value)
-        if value is not None:
-            store["monthly"][month][metric] = value
+            if value is not None:
+                store["monthly"][month][metric] = value
 
 
 def month_from_summary_title(value: Any) -> str | None:

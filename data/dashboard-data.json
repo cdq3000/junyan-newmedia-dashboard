@@ -1,7 +1,7 @@
 {
   "title": "骏延集团新媒体数据",
-  "sourceFile": "data/source.xlsx",
-  "generatedAt": "2026-06-08T17:18:56",
+  "sourceFile": "C:\\Users\\lala\\Documents\\New project\\junyan-newmedia-dashboard\\data\\source.xlsx",
+  "generatedAt": "2026-06-09T01:29:30",
   "months": [
     "1月",
     "2月",
@@ -27,54 +27,54 @@
       "name": "花都广本",
       "monthly": {
         "1月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 203.0,
+          "shortVideos": 295.0,
           "leads": 3099.0,
           "visits": 77.0,
           "orders": 36.0,
           "orderShare": 0.31,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 112378.0
         },
         "2月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 148.0,
+          "shortVideos": 367.0,
           "leads": 1529.0,
           "visits": 22.0,
           "orders": 4.0,
           "orderShare": 0.1,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 76252.1
         },
         "3月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 167.0,
+          "shortVideos": 202.0,
           "leads": 1277.0,
           "visits": 29.0,
           "orders": 9.0,
           "orderShare": 0.158,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 42298.0
         },
         "4月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 102.0,
+          "shortVideos": 98.0,
           "leads": 731.0,
           "visits": 22.0,
           "orders": 7.0,
           "orderShare": 0.008,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 19166.6
         },
         "5月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 110.0,
+          "shortVideos": 87.0,
           "leads": 855.0,
           "visits": 20.0,
           "orders": 8.0,
           "orderShare": 0.2,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 24770.6
         },
         "6月": {
           "liveSessions": 20.0,
@@ -152,54 +152,54 @@
       "name": "清远广本",
       "monthly": {
         "1月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 65.0,
+          "shortVideos": 58.0,
           "leads": 683.0,
           "visits": 41.0,
           "orders": 11.0,
           "orderShare": 0.21,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 0.0
         },
         "2月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 45.0,
+          "shortVideos": 58.0,
           "leads": 765.0,
           "visits": 29.0,
           "orders": 5.0,
           "orderShare": 0.11,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 0.0
         },
         "3月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 96.0,
+          "shortVideos": 93.0,
           "leads": 867.0,
           "visits": 50.0,
           "orders": 9.0,
           "orderShare": 0.2,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 15070.7
         },
         "4月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 74.0,
+          "shortVideos": 80.0,
           "leads": 593.0,
           "visits": 28.0,
           "orders": 7.0,
           "orderShare": 0.17,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 4592.0
         },
         "5月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 82.0,
+          "shortVideos": 80.0,
           "leads": 410.0,
           "visits": 32.0,
           "orders": 8.0,
           "orderShare": 0.236,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 12415.0
         },
         "6月": {
           "liveSessions": 19.0,
@@ -297,34 +297,34 @@
           "spend": 0
         },
         "3月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 56.0,
+          "shortVideos": 91.0,
           "leads": 461.0,
           "visits": 41.0,
           "orders": 16.0,
           "orderShare": 0.15,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 6374.27
         },
         "4月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 52.0,
+          "shortVideos": 64.0,
           "leads": 497.0,
           "visits": 4.0,
           "orders": 9.0,
           "orderShare": 0.12,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 17748.6
         },
         "5月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 54.0,
+          "shortVideos": 50.0,
           "leads": 452.0,
           "visits": 25.0,
           "orders": 9.0,
           "orderShare": 0.21,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 19828.5
         },
         "6月": {
           "liveSessions": 50.0,
@@ -402,54 +402,54 @@
       "name": "鑫海广本",
       "monthly": {
         "1月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 76.0,
+          "shortVideos": 55.0,
           "leads": 502.0,
           "visits": 76.0,
           "orders": 15.0,
           "orderShare": 0.15,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 15000.0
         },
         "2月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 50.0,
+          "shortVideos": 30.0,
           "leads": 181.0,
           "visits": 27.0,
           "orders": 7.0,
           "orderShare": 0.15,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 7000.0
         },
         "3月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 70.0,
+          "shortVideos": 60.0,
           "leads": 394.0,
           "visits": 52.0,
           "orders": 10.0,
           "orderShare": 0.15,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 11500.0
         },
         "4月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 62.0,
+          "shortVideos": 60.0,
           "leads": 316.0,
           "visits": 35.0,
           "orders": 5.0,
           "orderShare": 0.15,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 9600.0
         },
         "5月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 68.0,
+          "shortVideos": 46.0,
           "leads": 261.0,
           "visits": 41.0,
           "orders": 8.0,
           "orderShare": 0.15,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 14100.0
         },
         "6月": {
           "liveSessions": 6.0,
@@ -527,54 +527,54 @@
       "name": "花都零跑",
       "monthly": {
         "1月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 87.0,
+          "shortVideos": 103.0,
           "leads": 869.0,
           "visits": 25.0,
           "orders": 6.0,
           "orderShare": 0.12,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 62531.3
         },
         "2月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 88.0,
+          "shortVideos": 119.0,
           "leads": 495.0,
           "visits": 13.0,
           "orders": 3.0,
           "orderShare": 0.23,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 26762.4
         },
         "3月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 79.0,
+          "shortVideos": 131.0,
           "leads": 1446.0,
           "visits": 26.0,
           "orders": 9.0,
           "orderShare": 0.13,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 73590.7
         },
         "4月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 93.0,
+          "shortVideos": 63.0,
           "leads": 1054.0,
           "visits": 51.0,
           "orders": 12.0,
           "orderShare": 0.1043,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 94677.8
         },
         "5月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 90.0,
+          "shortVideos": 129.0,
           "leads": 1095.0,
           "visits": 31.0,
           "orders": 10.0,
           "orderShare": 0.16,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 123493.0
         },
         "6月": {
           "liveSessions": 18.0,
@@ -652,54 +652,54 @@
       "name": "白云零跑",
       "monthly": {
         "1月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 94.0,
+          "shortVideos": 172.0,
           "leads": 1160.0,
           "visits": 27.0,
           "orders": 6.0,
           "orderShare": 0.06,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 98074.3
         },
         "2月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 97.0,
+          "shortVideos": 136.0,
           "leads": 681.0,
           "visits": 21.0,
           "orders": 13.0,
           "orderShare": 0.6,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 68187.3
         },
         "3月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 77.0,
+          "shortVideos": 218.0,
           "leads": 902.0,
           "visits": 31.0,
           "orders": 17.0,
           "orderShare": 0.346,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 73233.3
         },
         "4月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 97.0,
+          "shortVideos": 197.0,
           "leads": 1112.0,
           "visits": 60.0,
           "orders": 16.0,
           "orderShare": 0.1,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 67492.1
         },
         "5月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 115.0,
+          "shortVideos": 165.0,
           "leads": 606.0,
           "visits": 28.0,
           "orders": 15.0,
           "orderShare": 0.2,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 47990.0
         },
         "6月": {
           "liveSessions": 15.0,
@@ -777,54 +777,54 @@
       "name": "清远港鸿零跑",
       "monthly": {
         "1月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 74.0,
+          "shortVideos": 59.0,
           "leads": 319.0,
           "visits": 54.0,
           "orders": 11.0,
           "orderShare": 0.26,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 60542.3
         },
         "2月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 56.0,
+          "shortVideos": 54.0,
           "leads": 282.0,
           "visits": 11.0,
           "orders": 4.0,
           "orderShare": 0.25,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 38282.4
         },
         "3月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 66.0,
+          "shortVideos": 110.0,
           "leads": 338.0,
           "visits": 39.0,
           "orders": 13.0,
           "orderShare": 0.13,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 35182.0
         },
         "4月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 111.0,
+          "shortVideos": 136.0,
           "leads": 365.0,
           "visits": 22.0,
           "orders": 5.0,
           "orderShare": 0.062,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 84894.7
         },
         "5月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 89.0,
+          "shortVideos": 118.0,
           "leads": 408.0,
           "visits": 23.0,
           "orders": 4.0,
           "orderShare": 0.084,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 39428.6
         },
         "6月": {
           "liveSessions": 19.0,
@@ -902,54 +902,54 @@
       "name": "清远奇晟零跑",
       "monthly": {
         "1月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 76.0,
+          "shortVideos": 72.0,
           "leads": 260.0,
           "visits": 22.0,
           "orders": 6.0,
           "orderShare": 0.1,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 35855.0
         },
         "2月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 61.0,
+          "shortVideos": 83.0,
           "leads": 212.0,
           "visits": 6.0,
           "orders": 3.0,
           "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 19537.4
         },
         "3月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 63.0,
+          "shortVideos": 91.0,
           "leads": 225.0,
           "visits": 11.0,
           "orders": 5.0,
           "orderShare": 0.11,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 21355.8
         },
         "4月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 69.0,
+          "shortVideos": 103.0,
           "leads": 220.0,
           "visits": 20.0,
           "orders": 3.0,
           "orderShare": 0.067,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 26237.0
         },
         "5月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 57.0,
+          "shortVideos": 147.0,
           "leads": 257.0,
           "visits": 13.0,
           "orders": 1.0,
           "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 20394.5
         },
         "6月": {
           "liveSessions": 15.0,
@@ -1027,54 +1027,54 @@
       "name": "清远英德零跑",
       "monthly": {
         "1月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 92.0,
+          "shortVideos": 75.0,
           "leads": 19.0,
           "visits": 7.0,
           "orders": 0.0,
           "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 0.0
         },
         "2月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 42.0,
+          "shortVideos": 30.0,
           "leads": 2.0,
           "visits": 1.0,
           "orders": 0.0,
           "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 0.0
         },
         "3月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 50.0,
+          "shortVideos": 81.0,
           "leads": 22.0,
           "visits": 3.0,
           "orders": 0.0,
           "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 0.0
         },
         "4月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 73.0,
+          "shortVideos": 84.0,
           "leads": 74.0,
           "visits": 15.0,
           "orders": 0.0,
           "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 0.0
         },
         "5月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 67.0,
+          "shortVideos": 99.0,
           "leads": 52.0,
           "visits": 8.0,
           "orders": 0.0,
           "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 0.0
         },
         "6月": {
           "liveSessions": 15.0,
@@ -1152,54 +1152,54 @@
       "name": "河源零跑",
       "monthly": {
         "1月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 70.0,
+          "shortVideos": 66.0,
           "leads": 467.0,
           "visits": 99.0,
           "orders": 19.0,
           "orderShare": 0.1,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 56953.3
         },
         "2月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 61.0,
+          "shortVideos": 52.0,
           "leads": 671.0,
           "visits": 67.0,
           "orders": 5.0,
           "orderShare": 0.22,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 57651.5
         },
         "3月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 83.0,
+          "shortVideos": 91.0,
           "leads": 1074.0,
           "visits": 91.0,
           "orders": 21.0,
           "orderShare": 0.102,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 91765.9
         },
         "4月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 75.0,
+          "shortVideos": 84.0,
           "leads": 840.0,
           "visits": 80.0,
           "orders": 22.0,
           "orderShare": 0.169,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 64921.5
         },
         "5月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 66.0,
+          "shortVideos": 91.0,
           "leads": 1195.0,
           "visits": 65.0,
           "orders": 20.0,
           "orderShare": 0.174,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 119690.0
         },
         "6月": {
           "liveSessions": 15.0,
@@ -1277,54 +1277,54 @@
       "name": "汕头零跑",
       "monthly": {
         "1月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 60.0,
+          "shortVideos": 80.0,
           "leads": 593.0,
           "visits": 54.0,
           "orders": 12.0,
           "orderShare": 0.17,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 69574.0
         },
         "2月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 58.0,
+          "shortVideos": 88.0,
           "leads": 461.0,
           "visits": 47.0,
           "orders": 11.0,
           "orderShare": 0.33,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 30054.8
         },
         "3月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 89.0,
+          "shortVideos": 99.0,
           "leads": 1200.0,
           "visits": 92.0,
           "orders": 24.0,
           "orderShare": 0.2,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 70478.0
         },
         "4月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 120.0,
+          "shortVideos": 119.0,
           "leads": 1337.0,
           "visits": 74.0,
           "orders": 35.0,
           "orderShare": 0.2,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 59715.0
         },
         "5月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 111.0,
+          "shortVideos": 116.0,
           "leads": 1485.0,
           "visits": 69.0,
           "orders": 22.0,
           "orderShare": 0.2,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 112219.0
         },
         "6月": {
           "liveSessions": 27.0,
@@ -1402,64 +1402,64 @@
       "name": "广花零跑",
       "monthly": {
         "1月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 46.0,
+          "shortVideos": 121.0,
           "leads": 550.0,
           "visits": 0.0,
           "orders": 0.0,
           "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 28439.9
         },
         "2月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 48.0,
+          "shortVideos": 156.0,
           "leads": 285.0,
           "visits": 3.0,
           "orders": 2.0,
           "orderShare": 0.25,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 20466.9
         },
         "3月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 60.0,
+          "shortVideos": 241.0,
           "leads": 393.0,
           "visits": 8.0,
           "orders": 2.0,
           "orderShare": 0.23,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 28648.6
         },
         "4月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 54.0,
+          "shortVideos": 83.0,
           "leads": 941.0,
           "visits": 24.0,
           "orders": 13.0,
           "orderShare": 0.06,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 31163.2
         },
         "5月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 97.0,
+          "shortVideos": 121.0,
           "leads": 269.0,
           "visits": 15.0,
           "orders": 0.0,
           "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 37819.0
         },
         "6月": {
-          "liveSessions": 11.0,
-          "shortVideos": 22.0,
+          "liveSessions": 4.0,
+          "shortVideos": 3.0,
           "leads": 87.0,
           "visits": 8.0,
           "orders": 1.0,
           "orderShare": 0.25,
           "attritionRate": 0,
-          "spend": 8140.4
+          "spend": 839.22
         },
         "7月": {
           "liveSessions": 0,
@@ -1527,62 +1527,62 @@
       "name": "北站零跑",
       "monthly": {
         "1月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 46.0,
+          "shortVideos": 74.0,
           "leads": 188.0,
           "visits": 2.0,
           "orders": 1.0,
           "orderShare": 0.1,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 42290.1
         },
         "2月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 36.0,
+          "shortVideos": 95.0,
           "leads": 84.0,
           "visits": 6.0,
           "orders": 0.0,
           "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 7603.6
         },
         "3月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 52.0,
+          "shortVideos": 146.0,
           "leads": 282.0,
           "visits": 21.0,
           "orders": 4.0,
           "orderShare": 0.2,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 38033.2
         },
         "4月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 73.0,
+          "shortVideos": 162.0,
           "leads": 398.0,
           "visits": 18.0,
           "orders": 7.0,
           "orderShare": 0.043,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 40025.9
         },
         "5月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 73.0,
+          "shortVideos": 143.0,
           "leads": 212.0,
           "visits": 9.0,
           "orders": 4.0,
           "orderShare": 0.207,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 26141.3
         },
         "6月": {
           "liveSessions": 10.0,
           "shortVideos": 34.0,
-          "leads": 0,
-          "visits": 0,
-          "orders": 0,
-          "orderShare": 0,
+          "leads": 112.0,
+          "visits": 15.0,
+          "orders": 1.0,
+          "orderShare": 0.0,
           "attritionRate": 0,
           "spend": 3642.0
         },
@@ -1652,54 +1652,54 @@
       "name": "清远极氪",
       "monthly": {
         "1月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 35.0,
+          "shortVideos": 35.0,
           "leads": 68.0,
           "visits": 10.0,
           "orders": 1.0,
           "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 4280.23
         },
         "2月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 57.0,
+          "shortVideos": 83.0,
           "leads": 369.0,
           "visits": 16.0,
           "orders": 0.0,
           "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 25197.0
         },
         "3月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 99.0,
+          "shortVideos": 66.0,
           "leads": 345.0,
           "visits": 18.0,
           "orders": 2.0,
           "orderShare": 0.03,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 29648.0
         },
         "4月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 96.0,
+          "shortVideos": 64.0,
           "leads": 384.0,
           "visits": 25.0,
           "orders": 2.0,
           "orderShare": 0.067,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 32341.2
         },
         "5月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 96.0,
+          "shortVideos": 60.0,
           "leads": 347.0,
           "visits": 27.0,
           "orders": 4.0,
           "orderShare": 0.083,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 29621.0
         },
         "6月": {
           "liveSessions": 20.0,
@@ -1817,14 +1817,14 @@
           "spend": 0
         },
         "5月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 53.0,
+          "shortVideos": 53.0,
           "leads": 39.0,
           "visits": 1.0,
           "orders": 0.0,
           "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 20438.0
         },
         "6月": {
           "liveSessions": 21.0,
@@ -1902,54 +1902,54 @@
       "name": "江门大众",
       "monthly": {
         "1月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 30.0,
+          "shortVideos": 48.0,
           "leads": 343.0,
           "visits": 17.0,
           "orders": 10.0,
           "orderShare": 0.1,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 20584.0
         },
         "2月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 21.0,
+          "shortVideos": 59.0,
           "leads": 351.0,
           "visits": 9.0,
           "orders": 3.0,
           "orderShare": 0.25,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 13575.0
         },
         "3月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 78.0,
+          "shortVideos": 101.0,
           "leads": 471.0,
           "visits": 22.0,
           "orders": 6.0,
           "orderShare": 0.1,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 52867.0
         },
         "4月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 12.0,
+          "shortVideos": 76.0,
           "leads": 324.0,
           "visits": 2.0,
           "orders": 2.0,
           "orderShare": 0.1,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 27611.0
         },
         "5月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 18.0,
+          "shortVideos": 58.0,
           "leads": 171.0,
           "visits": 12.0,
           "orders": 4.0,
           "orderShare": 0.05,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 13811.0
         },
         "6月": {
           "liveSessions": 0.0,
@@ -2027,54 +2027,54 @@
       "name": "花都传祺",
       "monthly": {
         "1月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 141.0,
+          "shortVideos": 137.0,
           "leads": 579.0,
           "visits": 22.0,
           "orders": 7.0,
           "orderShare": 0.12,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 51467.0
         },
         "2月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 123.0,
+          "shortVideos": 113.0,
           "leads": 302.0,
           "visits": 8.0,
           "orders": 3.0,
           "orderShare": 0.17,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 21695.8
         },
         "3月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 108.0,
+          "shortVideos": 105.0,
           "leads": 870.0,
           "visits": 27.0,
           "orders": 7.0,
           "orderShare": 0.18,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 69662.1
         },
         "4月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 135.0,
+          "shortVideos": 132.0,
           "leads": 557.0,
           "visits": 12.0,
           "orders": 3.0,
           "orderShare": 0.1,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 31248.6
         },
         "5月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
+          "liveSessions": 143.0,
+          "shortVideos": 151.0,
           "leads": 504.0,
           "visits": 24.0,
           "orders": 6.0,
           "orderShare": 0.16,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 45182.0
         },
         "6月": {
           "liveSessions": 36.0,
@@ -2149,67 +2149,67 @@
       }
     },
     {
-      "name": "花都北站零跑",
+      "name": "从化零跑",
       "monthly": {
         "1月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
-          "leads": 0,
-          "visits": 0,
-          "orders": 0,
-          "orderShare": 0,
+          "liveSessions": 52.0,
+          "shortVideos": 143.0,
+          "leads": 539.0,
+          "visits": 1.0,
+          "orders": 4.0,
+          "orderShare": 0.22,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 34115.2
         },
         "2月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
-          "leads": 0,
-          "visits": 0,
-          "orders": 0,
-          "orderShare": 0,
+          "liveSessions": 46.0,
+          "shortVideos": 112.0,
+          "leads": 525.0,
+          "visits": 4.0,
+          "orders": 2.0,
+          "orderShare": 0.18,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 15821.5
         },
         "3月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
-          "leads": 0,
-          "visits": 0,
-          "orders": 0,
-          "orderShare": 0,
+          "liveSessions": 44.0,
+          "shortVideos": 163.0,
+          "leads": 331.0,
+          "visits": 11.0,
+          "orders": 4.0,
+          "orderShare": 0.29,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 27175.8
         },
         "4月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
-          "leads": 0,
-          "visits": 0,
-          "orders": 0,
-          "orderShare": 0,
+          "liveSessions": 58.0,
+          "shortVideos": 96.0,
+          "leads": 719.0,
+          "visits": 23.0,
+          "orders": 11.0,
+          "orderShare": 0.15,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 37993.5
         },
         "5月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
-          "leads": 0,
-          "visits": 0,
-          "orders": 0,
-          "orderShare": 0,
-          "attritionRate": 0,
-          "spend": 0
-        },
-        "6月": {
-          "liveSessions": 0,
-          "shortVideos": 0,
-          "leads": 1276.0,
-          "visits": 71.0,
-          "orders": 17.0,
+          "liveSessions": 52.0,
+          "shortVideos": 142.0,
+          "leads": 323.0,
+          "visits": 15.0,
+          "orders": 4.0,
           "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 0
+          "spend": 31541.59
+        },
+        "6月": {
+          "liveSessions": 11.0,
+          "shortVideos": 22.0,
+          "leads": 240.0,
+          "visits": 8.0,
+          "orders": 0,
+          "orderShare": 0.0,
+          "attritionRate": 0,
+          "spend": 8140.4
         },
         "7月": {
           "liveSessions": 0,
@@ -2276,64 +2276,64 @@
   ],
   "totals": {
     "1月": {
-      "liveSessions": 0,
-      "shortVideos": 0,
-      "leads": 9699.0,
-      "visits": 533.0,
-      "orders": 141.0,
-      "orderShare": 0.1853900709219858,
+      "liveSessions": 1247.0,
+      "shortVideos": 1593.0,
+      "leads": 10238.0,
+      "visits": 534.0,
+      "orders": 145.0,
+      "orderShare": 0.1863448275862069,
       "attritionRate": 0,
-      "spend": 0
+      "spend": 692084.6299999999
     },
     "2月": {
-      "liveSessions": 0,
-      "shortVideos": 0,
-      "leads": 6670.0,
-      "visits": 286.0,
-      "orders": 63.0,
-      "orderShare": 0.2853968253968254,
+      "liveSessions": 1037.0,
+      "shortVideos": 1635.0,
+      "leads": 7195.0,
+      "visits": 290.0,
+      "orders": 65.0,
+      "orderShare": 0.28215384615384614,
       "attritionRate": 0,
-      "spend": 0
+      "spend": 428087.69999999995
     },
     "3月": {
-      "liveSessions": 0,
-      "shortVideos": 0,
-      "leads": 10567.0,
-      "visits": 561.0,
-      "orders": 154.0,
-      "orderShare": 0.17231168831168833,
+      "liveSessions": 1337.0,
+      "shortVideos": 2089.0,
+      "leads": 10898.0,
+      "visits": 572.0,
+      "orders": 158.0,
+      "orderShare": 0.17529113924050635,
       "attritionRate": 0,
-      "spend": 0
+      "spend": 686883.37
     },
     "4月": {
-      "liveSessions": 0,
-      "shortVideos": 0,
-      "leads": 9743.0,
-      "visits": 492.0,
-      "orders": 148.0,
-      "orderShare": 0.12751081081081078,
+      "liveSessions": 1356.0,
+      "shortVideos": 1701.0,
+      "leads": 10462.0,
+      "visits": 515.0,
+      "orders": 159.0,
+      "orderShare": 0.12906666666666664,
       "attritionRate": 0,
-      "spend": 0
+      "spend": 649428.7
     },
     "5月": {
-      "liveSessions": 0,
-      "shortVideos": 0,
-      "leads": 8618.0,
-      "visits": 443.0,
-      "orders": 123.0,
-      "orderShare": 0.17653658536585365,
+      "liveSessions": 1441.0,
+      "shortVideos": 1856.0,
+      "leads": 8941.0,
+      "visits": 458.0,
+      "orders": 127.0,
+      "orderShare": 0.1709763779527559,
       "attritionRate": 0,
-      "spend": 0
+      "spend": 738883.09
     },
     "6月": {
-      "liveSessions": 317.0,
-      "shortVideos": 461.0,
-      "leads": 6180.0,
-      "visits": 484.0,
-      "orders": 85.0,
-      "orderShare": 0.16005882352941178,
+      "liveSessions": 321.0,
+      "shortVideos": 464.0,
+      "leads": 5256.0,
+      "visits": 436.0,
+      "orders": 69.0,
+      "orderShare": 0.19717391304347825,
       "attritionRate": 0,
-      "spend": 136202.97
+      "spend": 137042.19
     }
   }
 }
