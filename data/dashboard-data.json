@@ -1,7 +1,7 @@
 {
   "title": "骏延集团新媒体数据",
-  "sourceFile": "2026年1-6月骏延集团新媒体数据表(6.7.xlsx",
-  "generatedAt": "2026-06-08T15:57:24",
+  "sourceFile": "C:\\Users\\lala\\Desktop\\2026年1-5月骏延集团新媒体数据表(总.xlsx",
+  "generatedAt": "2026-06-08T15:58:55",
   "months": [
     "1月",
     "2月",
@@ -70,7 +70,7 @@
           "shortVideos": 87,
           "leads": 855,
           "visits": 20,
-          "orders": 10,
+          "orders": 8,
           "orderShare": 0.2,
           "attritionRate": 0,
           "spend": 24770.6
@@ -192,13 +192,13 @@
         },
         "5月": {
           "liveSessions": 82,
-          "shortVideos": 83,
+          "shortVideos": 80,
           "leads": 410,
           "visits": 32,
           "orders": 8,
           "orderShare": 0.236,
           "attritionRate": 0,
-          "spend": 15729
+          "spend": 12415
         },
         "6月": {
           "liveSessions": 0,
@@ -557,7 +557,7 @@
         },
         "4月": {
           "liveSessions": 93,
-          "shortVideos": 163,
+          "shortVideos": 63,
           "leads": 1054,
           "visits": 51,
           "orders": 12,
@@ -2181,7 +2181,7 @@
     },
     "4月": {
       "liveSessions": 1302,
-      "shortVideos": 1718,
+      "shortVideos": 1618,
       "leads": 9743,
       "visits": 492,
       "orders": 148,
@@ -2191,13 +2191,13 @@
     },
     "5月": {
       "liveSessions": 1344,
-      "shortVideos": 1738,
+      "shortVideos": 1735,
       "leads": 8618,
       "visits": 443,
-      "orders": 125,
-      "orderShare": 0.17691199999999999,
+      "orders": 123,
+      "orderShare": 0.17653658536585365,
       "attritionRate": 0,
-      "spend": 704378.09
+      "spend": 701064.09
     }
   }
 }
