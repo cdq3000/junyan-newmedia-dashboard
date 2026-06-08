@@ -1,0 +1,350 @@
+const DATA_URL = "./data/dashboard-data.json";
+const POLL_MS = 5000;
+const COLORS = ["#20e3ff", "#4f7cff", "#8f6cff", "#4dffb6", "#ffcc66", "#ff6b8a"];
+const KPI_KEYS = ["liveSessions", "shortVideos", "leads", "visits", "orders", "orderShare"];
+
+let state = {
+  data: null,
+  month: null,
+  store: "集团合计",
+  generatedAt: null,
+  customStores: JSON.parse(localStorage.getItem("junyanCustomStores") || "[]"),
+};
+
+const fmt = new Intl.NumberFormat("zh-CN", { maximumFractionDigits: 0 });
+const pctFmt = new Intl.NumberFormat("zh-CN", { style: "percent", maximumFractionDigits: 1 });
+
+function valueText(key, value) {
+  if (key === "orderShare") return pctFmt.format(value || 0);
+  if (key === "spend") return `¥${fmt.format(value || 0)}`;
+  return fmt.format(value || 0);
+}
+
+function metricValue(entity, month, key) {
+  return entity?.monthly?.[month]?.[key] || 0;
+}
+
+function totalsAsEntity(data) {
+  return {
+    name: "集团合计",
+    monthly: Object.fromEntries(data.months.map((month) => [month, data.totals[month]])),
+  };
+}
+
+function getSelectedEntity() {
+  if (!state.data) return null;
+  if (state.store === "集团合计") return totalsAsEntity(state.data);
+  return state.data.stores.find((item) => item.name === state.store) || totalsAsEntity(state.data);
+}
+
+function changeRate(current, previous) {
+  if (!previous) return current ? 1 : 0;
+  return (current - previous) / previous;
+}
+
+function animateNumber(el, target, key) {
+  const duration = 900;
+  const start = performance.now();
+  const from = 0;
+  const to = Number(target || 0);
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = valueText(key, from + (to - from) * eased);
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+function renderControls() {
+  const monthSelect = document.querySelector("#monthSelect");
+  const storeSelect = document.querySelector("#storeSelect");
+  monthSelect.innerHTML = state.data.months.map((month) => `<option value="${month}">${month}</option>`).join("");
+  monthSelect.value = state.month;
+
+  const stores = ["集团合计", ...state.data.stores.map((item) => item.name)];
+  storeSelect.innerHTML = stores.map((name) => `<option value="${name}">${name}</option>`).join("");
+  storeSelect.value = state.store;
+}
+
+function renderKpis() {
+  const grid = document.querySelector("#kpiGrid");
+  const entity = getSelectedEntity();
+  const previous = state.data.previousMonth;
+  grid.innerHTML = KPI_KEYS.map((key, index) => {
+    const current = metricValue(entity, state.month, key);
+    const prev = previous ? metricValue(entity, previous, key) : 0;
+    const rate = changeRate(current, prev);
+    const isDown = rate < 0;
+    return `
+      <article class="kpi-card ${index === 2 || index === 4 ? "hot" : ""}" style="--accent:${COLORS[index]}">
+        <div class="kpi-label">${state.data.metrics[key]}</div>
+        <strong class="kpi-value" data-key="${key}" data-value="${current}">0</strong>
+        <div class="kpi-change ${isDown ? "down" : ""}">${previous ? `${isDown ? "" : "+"}${pctFmt.format(rate)} 较${previous}` : "首月数据"}</div>
+      </article>
+    `;
+  }).join("");
+  grid.querySelectorAll(".kpi-value").forEach((el) => animateNumber(el, el.dataset.value, el.dataset.key));
+}
+
+function renderBars() {
+  const scene = document.querySelector("#barScene");
+  const ranked = state.data.stores
+    .map((store) => ({
+      name: store.name,
+      leads: metricValue(store, state.month, "leads"),
+      orders: metricValue(store, state.month, "orders"),
+    }))
+    .sort((a, b) => b.leads - a.leads)
+    .slice(0, 12);
+  const max = Math.max(...ranked.map((item) => item.leads), 1);
+  scene.innerHTML = ranked.map((item, index) => {
+    const height = Math.max(22, (item.leads / max) * 265);
+    const accent = COLORS[index % COLORS.length];
+    return `
+      <div class="bar-wrap" title="${item.name} ${fmt.format(item.leads)} 线索">
+        <div class="bar" style="--h:${height}px;--accent:${accent};animation-delay:${index * 55}ms">
+          <i class="bar-face front"></i>
+          <i class="bar-face back"></i>
+          <i class="bar-face left"></i>
+          <i class="bar-face right"></i>
+          <i class="bar-face top"></i>
+        </div>
+        <div class="bar-label">${item.name}<br>${fmt.format(item.leads)}</div>
+      </div>
+    `;
+  }).join("");
+  renderConnectors(ranked);
+}
+
+function renderConnectors(items) {
+  const svg = document.querySelector("#connectorSvg");
+  const points = items.slice(0, 6).map((_, index) => {
+    const x = 120 + index * 150;
+    const y = index % 2 ? 190 : 115;
+    return [x, y];
+  });
+  const paths = points.slice(1).map((point, index) => {
+    const [x1, y1] = points[index];
+    const [x2, y2] = point;
+    const c1 = x1 + 80;
+    const c2 = x2 - 80;
+    return `<path class="connector-path" d="M ${x1} ${y1} C ${c1} ${y1 - 60}, ${c2} ${y2 + 60}, ${x2} ${y2}" />`;
+  }).join("");
+  const nodes = points.map(([x, y], index) => `
+    <circle cx="${x}" cy="${y}" r="${6 + index}" fill="${COLORS[index % COLORS.length]}" filter="url(#nodeGlow)" />
+  `).join("");
+  svg.innerHTML = `
+    <defs>
+      <linearGradient id="connectorGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop stop-color="#20e3ff"/>
+        <stop offset="55%" stop-color="#8f6cff"/>
+        <stop offset="100%" stop-color="#4dffb6"/>
+      </linearGradient>
+      <filter id="nodeGlow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs>
+    ${paths}
+    ${nodes}
+  `;
+}
+
+function renderRings() {
+  const rings = document.querySelector("#rings");
+  const entity = getSelectedEntity();
+  const leads = metricValue(entity, state.month, "leads");
+  const visits = metricValue(entity, state.month, "visits");
+  const orders = metricValue(entity, state.month, "orders");
+  const share = metricValue(entity, state.month, "orderShare");
+  const defs = [
+    { label: "线索到店率", value: leads ? visits / leads : 0, accent: COLORS[0] },
+    { label: "到店成交率", value: visits ? orders / visits : 0, accent: COLORS[3] },
+    { label: "订单零售占比", value: share || 0, accent: COLORS[4] },
+  ];
+  const radius = 45;
+  const circumference = Math.PI * 2 * radius;
+  rings.innerHTML = defs.map((item) => {
+    const clamped = Math.max(0, Math.min(item.value, 1));
+    return `
+      <div class="ring-item" style="--accent:${item.accent}">
+        <svg class="ring-svg" viewBox="0 0 116 116">
+          <circle class="ring-track" cx="58" cy="58" r="${radius}"></circle>
+          <circle class="ring-progress" cx="58" cy="58" r="${radius}"
+            stroke-dasharray="${circumference}"
+            stroke-dashoffset="${circumference * (1 - clamped)}"></circle>
+        </svg>
+        <div class="ring-copy">
+          <strong>${pctFmt.format(item.value)}</strong>
+          <span>${item.label}</span>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+function renderInsights() {
+  const box = document.querySelector("#insightBox");
+  const entity = getSelectedEntity();
+  const prev = state.data.previousMonth;
+  const leads = metricValue(entity, state.month, "leads");
+  const orders = metricValue(entity, state.month, "orders");
+  const visits = metricValue(entity, state.month, "visits");
+  const leadChange = prev ? changeRate(leads, metricValue(entity, prev, "leads")) : 0;
+  const orderChange = prev ? changeRate(orders, metricValue(entity, prev, "orders")) : 0;
+  const bestStore = state.data.stores
+    .map((store) => ({ name: store.name, orders: metricValue(store, state.month, "orders") }))
+    .sort((a, b) => b.orders - a.orders)[0];
+  box.innerHTML = `
+    <strong>${state.store} · ${state.month}</strong><br>
+    线索 ${valueText("leads", leads)}，到店 ${valueText("visits", visits)}，订单 ${valueText("orders", orders)}。
+    ${prev ? `线索环比 ${leadChange >= 0 ? "增长" : "下降"} ${pctFmt.format(Math.abs(leadChange))}，订单环比 ${orderChange >= 0 ? "增长" : "下降"} ${pctFmt.format(Math.abs(orderChange))}。` : ""}
+    当前订单最高门店：${bestStore?.name || "-"}（${valueText("orders", bestStore?.orders || 0)}）。
+  `;
+}
+
+function chartPoints(values, width, height, pad) {
+  const max = Math.max(...values, 1);
+  return values.map((value, index) => {
+    const x = pad + (index * (width - pad * 2)) / Math.max(values.length - 1, 1);
+    const y = height - pad - (value / max) * (height - pad * 2);
+    return [x, y];
+  });
+}
+
+function renderTrend() {
+  const svg = document.querySelector("#trendChart");
+  const entity = getSelectedEntity();
+  const width = 1200;
+  const height = 300;
+  const pad = 38;
+  const months = state.data.months;
+  const leads = months.map((month) => metricValue(entity, month, "leads"));
+  const orders = months.map((month) => metricValue(entity, month, "orders") * 80);
+  const leadPts = chartPoints(leads, width, height, pad);
+  const orderPts = chartPoints(orders, width, height, pad);
+  const line = (pts) => pts.map(([x, y], index) => `${index ? "L" : "M"} ${x} ${y}`).join(" ");
+  const area = (pts) => `${line(pts)} L ${pts.at(-1)[0]} ${height - pad} L ${pts[0][0]} ${height - pad} Z`;
+  const labels = months.map((month, index) => {
+    const x = pad + (index * (width - pad * 2)) / Math.max(months.length - 1, 1);
+    return `<text class="trend-label" x="${x}" y="286" text-anchor="middle">${month}</text>`;
+  }).join("");
+  const grid = [0, 1, 2, 3].map((i) => {
+    const y = pad + i * 62;
+    return `<line class="grid-line" x1="${pad}" y1="${y}" x2="${width - pad}" y2="${y}" />`;
+  }).join("");
+  svg.innerHTML = `
+    <defs>
+      <linearGradient id="leadArea" x1="0" x2="0" y1="0" y2="1">
+        <stop stop-color="#20e3ff"/>
+        <stop offset="1" stop-color="#20e3ff" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="orderArea" x1="0" x2="0" y1="0" y2="1">
+        <stop stop-color="#ffcc66"/>
+        <stop offset="1" stop-color="#ffcc66" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    ${grid}
+    <path class="trend-area" d="${area(leadPts)}" fill="url(#leadArea)"></path>
+    <path class="trend-line" d="${line(leadPts)}" stroke="#20e3ff" style="color:#20e3ff"></path>
+    <path class="trend-area" d="${area(orderPts)}" fill="url(#orderArea)"></path>
+    <path class="trend-line" d="${line(orderPts)}" stroke="#ffcc66" style="color:#ffcc66;animation-delay:150ms"></path>
+    ${leadPts.map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" fill="#20e3ff"></circle>`).join("")}
+    ${orderPts.map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" fill="#ffcc66"></circle>`).join("")}
+    ${labels}
+  `;
+}
+
+function renderTable() {
+  const rows = document.querySelector("#storeRows");
+  const prev = state.data.previousMonth;
+  rows.innerHTML = state.data.stores.map((store) => {
+    const m = store.monthly[state.month];
+    const prevOrders = prev ? metricValue(store, prev, "orders") : 0;
+    const rate = changeRate(m.orders, prevOrders);
+    return `
+      <tr>
+        <td>${store.name}</td>
+        <td>${valueText("liveSessions", m.liveSessions)}</td>
+        <td>${valueText("shortVideos", m.shortVideos)}</td>
+        <td>${valueText("leads", m.leads)}</td>
+        <td>${valueText("visits", m.visits)}</td>
+        <td>${valueText("orders", m.orders)}</td>
+        <td>${valueText("orderShare", m.orderShare)}</td>
+        <td class="${rate < 0 ? "kpi-change down" : "kpi-change"}">${prev ? `${rate >= 0 ? "+" : ""}${pctFmt.format(rate)}` : "-"}</td>
+      </tr>
+    `;
+  }).join("");
+}
+
+function applyCustomStores(data) {
+  const existing = new Set(data.stores.map((store) => store.name));
+  state.customStores.forEach((name) => {
+    if (existing.has(name)) return;
+    data.stores.push({
+      name,
+      monthly: Object.fromEntries(data.months.map((month) => [month, Object.fromEntries(Object.keys(data.metrics).map((key) => [key, 0]))])),
+    });
+  });
+}
+
+function renderAll() {
+  if (!state.data) return;
+  renderControls();
+  renderKpis();
+  renderBars();
+  renderRings();
+  renderInsights();
+  renderTrend();
+  renderTable();
+}
+
+async function loadData() {
+  try {
+    const response = await fetch(`${DATA_URL}?t=${Date.now()}`);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    applyCustomStores(data);
+    if (data.generatedAt === state.generatedAt && state.data) return;
+    state.data = data;
+    state.generatedAt = data.generatedAt;
+    state.month = state.month && data.months.includes(state.month) ? state.month : data.latestMonth;
+    const storeNames = new Set(["集团合计", ...data.stores.map((store) => store.name)]);
+    state.store = storeNames.has(state.store) ? state.store : "集团合计";
+    document.querySelector("#syncBadge").textContent = `已同步 ${data.generatedAt.replace("T", " ")}`;
+    renderAll();
+  } catch (error) {
+    document.querySelector("#syncBadge").textContent = "等待数据同步";
+    console.error(error);
+  }
+}
+
+document.querySelector("#monthSelect").addEventListener("change", (event) => {
+  state.month = event.target.value;
+  renderAll();
+});
+
+document.querySelector("#storeSelect").addEventListener("change", (event) => {
+  state.store = event.target.value;
+  renderAll();
+});
+
+const dialog = document.querySelector("#storeDialog");
+document.querySelector("#addStoreBtn").addEventListener("click", () => dialog.showModal());
+document.querySelector("#storeForm").addEventListener("submit", (event) => {
+  if (event.submitter?.value !== "add") return;
+  const input = document.querySelector("#newStoreName");
+  const name = input.value.trim();
+  if (!name) return;
+  if (!state.customStores.includes(name)) {
+    state.customStores.push(name);
+    localStorage.setItem("junyanCustomStores", JSON.stringify(state.customStores));
+  }
+  input.value = "";
+  state.store = name;
+  if (state.data) {
+    applyCustomStores(state.data);
+    renderAll();
+  }
+});
+
+loadData();
+setInterval(loadData, POLL_MS);

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>骏延集团新媒体数据 3D 可视化大屏</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="dashboard-shell">
+      <header class="topbar">
+        <section>
+          <p class="eyebrow">Junyan Group New Media Command Center</p>
+          <h1>骏延集团新媒体数据</h1>
+          <p class="subtitle">月度经营监控 / 门店表现 / 线索到店订单转化</p>
+        </section>
+        <section class="toolbar">
+          <label class="select-wrap">
+            <span>月份</span>
+            <select id="monthSelect"></select>
+          </label>
+          <label class="select-wrap">
+            <span>门店</span>
+            <select id="storeSelect"></select>
+          </label>
+          <button id="addStoreBtn" class="ghost-button" type="button">新增门店</button>
+        </section>
+      </header>
+
+      <section id="kpiGrid" class="kpi-grid" aria-label="关键指标"></section>
+
+      <section class="main-grid">
+        <article class="panel hero-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">3D Volume Ranking</p>
+              <h2>门店月度指标强度</h2>
+            </div>
+            <div id="syncBadge" class="sync-badge">同步中</div>
+          </div>
+          <div class="scene-wrap">
+            <svg class="connector-layer" id="connectorSvg" viewBox="0 0 1000 430" preserveAspectRatio="none"></svg>
+            <div id="barScene" class="bar-scene"></div>
+          </div>
+        </article>
+
+        <aside class="panel ring-panel">
+          <div class="panel-head compact">
+            <div>
+              <p class="eyebrow">Conversion Radar</p>
+              <h2>转化指标盘</h2>
+            </div>
+          </div>
+          <div id="rings" class="rings"></div>
+          <div id="insightBox" class="insight-box"></div>
+        </aside>
+      </section>
+
+      <section class="bottom-grid">
+        <article class="panel trend-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Monthly Trend</p>
+              <h2>集团月度变化趋势</h2>
+            </div>
+          </div>
+          <svg id="trendChart" class="trend-chart" viewBox="0 0 1200 300" preserveAspectRatio="none"></svg>
+        </article>
+
+        <article class="panel store-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Store Matrix</p>
+              <h2>门店明细</h2>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>门店</th>
+                  <th>直播</th>
+                  <th>短视频</th>
+                  <th>线索</th>
+                  <th>到店</th>
+                  <th>订单</th>
+                  <th>占比</th>
+                  <th>环比</th>
+                </tr>
+              </thead>
+              <tbody id="storeRows"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <dialog id="storeDialog" class="store-dialog">
+      <form method="dialog" id="storeForm">
+        <h3>新增门店</h3>
+        <input id="newStoreName" name="storeName" placeholder="输入门店名称" autocomplete="off" />
+        <menu>
+          <button value="cancel" type="submit">取消</button>
+          <button value="add" class="primary-button" type="submit">添加</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
