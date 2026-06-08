@@ -1,7 +1,7 @@
 {
   "title": "骏延集团新媒体数据",
-  "sourceFile": "data/source.xlsx",
-  "generatedAt": "2026-06-08T17:11:35",
+  "sourceFile": "C:\\Users\\lala\\Documents\\New project\\junyan-newmedia-dashboard\\data\\source.xlsx",
+  "generatedAt": "2026-06-09T01:17:21",
   "months": [
     "1月",
     "2月",
@@ -78,7 +78,7 @@
         },
         "6月": {
           "liveSessions": 20.0,
-          "shortVideos": 33.0,
+          "shortVideos": 30.0,
           "leads": 451.0,
           "visits": 3.0,
           "orders": 2.0,
@@ -2327,7 +2327,7 @@
     },
     "6月": {
       "liveSessions": 317.0,
-      "shortVideos": 464.0,
+      "shortVideos": 461.0,
       "leads": 6180.0,
       "visits": 484.0,
       "orders": 85.0,
