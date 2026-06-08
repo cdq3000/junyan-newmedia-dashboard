@@ -50,6 +50,8 @@ let state = {
   data: null,
   month: null,
   store: null,
+  workbookPreview: null,
+  previewSheet: null,
 };
 
 const fmt = new Intl.NumberFormat("zh-CN", { maximumFractionDigits: 0 });
@@ -210,6 +212,70 @@ function renderAll() {
   renderStores();
   renderMetricForm();
   renderTable();
+  renderExcelPreview();
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
+
+function workbookToPreview(workbook) {
+  const preview = {};
+  workbook.SheetNames.forEach((name) => {
+    const sheet = workbook.Sheets[name];
+    const range = sheet["!ref"] ? XLSX.utils.decode_range(sheet["!ref"]) : null;
+    if (!range) {
+      preview[name] = [];
+      return;
+    }
+    const rows = [];
+    for (let row = range.s.r; row <= range.e.r; row += 1) {
+      const cells = [];
+      for (let col = range.s.c; col <= range.e.c; col += 1) {
+        const address = XLSX.utils.encode_cell({ r: row, c: col });
+        const cell = sheet[address];
+        cells.push(cell?.w ?? cell?.v ?? "");
+      }
+      rows.push(cells);
+    }
+    preview[name] = rows;
+  });
+  return preview;
+}
+
+function renderExcelPreview() {
+  const select = document.querySelector("#sheetSelect");
+  const target = document.querySelector("#excelPreview");
+  if (!state.workbookPreview) {
+    select.innerHTML = "";
+    target.className = "excel-preview empty";
+    target.textContent = "导入 Excel 后，这里会显示原始工作表。";
+    return;
+  }
+  const sheetNames = Object.keys(state.workbookPreview);
+  select.innerHTML = sheetNames.map((name) => `<option value="${escapeHtml(name)}">${escapeHtml(name)}</option>`).join("");
+  state.previewSheet = state.previewSheet && state.workbookPreview[state.previewSheet] ? state.previewSheet : sheetNames[0];
+  select.value = state.previewSheet;
+  const rows = state.workbookPreview[state.previewSheet] || [];
+  const colCount = Math.max(...rows.map((row) => row.length), 1);
+  const headers = Array.from({ length: colCount }, (_, index) => `<th>${index + 1}</th>`).join("");
+  const body = rows.map((row, rowIndex) => `
+    <tr>
+      <td>${rowIndex + 1}</td>
+      ${Array.from({ length: colCount }, (_, colIndex) => `<td title="${escapeHtml(row[colIndex])}">${escapeHtml(row[colIndex])}</td>`).join("")}
+    </tr>
+  `).join("");
+  target.className = "excel-preview";
+  target.innerHTML = `
+    <table>
+      <thead><tr><th>#</th>${headers}</tr></thead>
+      <tbody>${body}</tbody>
+    </table>
+  `;
 }
 
 async function fetchJsonData() {
@@ -396,6 +462,17 @@ async function updateRemoteDataFile(headers, token) {
   return update.json();
 }
 
+async function dispatchPagesWorkflow(headers) {
+  const response = await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/pages.yml/dispatches`, {
+    method: "POST",
+    headers: { ...headers, "Content-Type": "application/json" },
+    body: JSON.stringify({ ref: "main" }),
+  });
+  if (!response.ok && response.status !== 204) {
+    console.warn("Pages workflow dispatch failed", await readGitHubError(response));
+  }
+}
+
 async function publishToGitHub() {
   saveCurrentStore();
   const token = document.querySelector("#githubToken").value.trim() || sessionStorage.getItem("junyanGithubToken");
@@ -413,6 +490,8 @@ async function publishToGitHub() {
   await validateGitHubToken(headers);
   setStatus("正在发布数据到 GitHub...");
   await updateRemoteDataFile(headers, token);
+  setStatus("正在刷新前台部署...");
+  await dispatchPagesWorkflow(headers);
   localStorage.removeItem("junyanAdminDraft");
   setDirty(false);
   setStatus("已发布到 GitHub，前台约 5-30 秒刷新");
@@ -551,6 +630,8 @@ function importExcelFile(file) {
   reader.onload = () => {
     try {
       const workbook = XLSX.read(reader.result, { type: "array", cellDates: false });
+      state.workbookPreview = workbookToPreview(workbook);
+      state.previewSheet = workbook.SheetNames[0];
       state.data = buildPayloadFromWorkbook(workbook, file.name);
       state.month = state.data.months.at(-1);
       state.store = state.data.stores[0]?.name || null;
@@ -596,6 +677,10 @@ document.querySelector("#monthSelect").addEventListener("change", (event) => {
   renderAll();
 });
 document.querySelector("#storeSearch").addEventListener("input", renderStores);
+document.querySelector("#sheetSelect").addEventListener("change", (event) => {
+  state.previewSheet = event.target.value;
+  renderExcelPreview();
+});
 document.querySelector("#saveStoreBtn").addEventListener("click", saveCurrentStore);
 document.querySelector("#saveLocalBtn").addEventListener("click", saveDraft);
 document.querySelector("#addStoreBtn").addEventListener("click", addStore);

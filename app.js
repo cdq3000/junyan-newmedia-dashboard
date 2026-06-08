@@ -1,4 +1,4 @@
-const REMOTE_DATA_URL = "https://raw.githubusercontent.com/cdq3000/junyan-newmedia-dashboard/main/data/dashboard-data.json";
+const REMOTE_DATA_URL = "https://api.github.com/repos/cdq3000/junyan-newmedia-dashboard/contents/data/dashboard-data.json?ref=main";
 const LOCAL_DATA_URL = "./data/dashboard-data.json";
 const POLL_MS = 5000;
 const COLORS = ["#20e3ff", "#4f7cff", "#8f6cff", "#4dffb6", "#ffcc66", "#ff6b8a"];
@@ -329,14 +329,23 @@ function renderAll() {
 
 async function loadData() {
   try {
-    let response = await fetch(`${REMOTE_DATA_URL}?t=${Date.now()}`, { cache: "no-store" });
-    state.dataSource = "GitHub raw 实时数据";
+    let response = await fetch(`${REMOTE_DATA_URL}&t=${Date.now()}`, {
+      cache: "no-store",
+      headers: { Accept: "application/vnd.github+json" },
+    });
+    state.dataSource = "GitHub API 实时数据";
+    let data = null;
+    if (response.ok) {
+      const payload = await response.json();
+      const jsonText = new TextDecoder().decode(Uint8Array.from(atob(payload.content.replace(/\s/g, "")), (char) => char.charCodeAt(0)));
+      data = JSON.parse(jsonText);
+    }
     if (!response.ok) {
       response = await fetch(`${LOCAL_DATA_URL}?t=${Date.now()}`, { cache: "no-store" });
       state.dataSource = "本地数据文件";
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      data = await response.json();
     }
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const data = await response.json();
     if (data.generatedAt === state.generatedAt && state.data) return;
     state.data = data;
     state.generatedAt = data.generatedAt;

@@ -209,6 +209,63 @@ dd {
   font-size: 18px;
 }
 
+.excel-preview-card {
+  margin-bottom: 16px;
+}
+
+.sheet-picker {
+  min-width: 220px;
+}
+
+.excel-preview {
+  max-height: 420px;
+  overflow: auto;
+  border: 1px solid rgba(105, 145, 255, 0.18);
+  border-radius: 8px;
+  background: rgba(5, 9, 22, 0.72);
+}
+
+.excel-preview.empty {
+  display: grid;
+  min-height: 120px;
+  place-items: center;
+  color: var(--muted);
+}
+
+.excel-preview table {
+  min-width: max-content;
+  font-size: 12px;
+}
+
+.excel-preview th,
+.excel-preview td {
+  max-width: 220px;
+  min-width: 72px;
+  padding: 7px 9px;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+}
+
+.excel-preview th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.excel-preview th:first-child,
+.excel-preview td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  color: var(--cyan);
+  background: rgba(8, 13, 31, 0.96);
+}
+
+.excel-preview th:first-child {
+  z-index: 3;
+}
+
 .editor-area {
   display: grid;
   grid-template-columns: 320px minmax(0, 1fr);
