@@ -323,10 +323,77 @@ function exportJson() {
 function toBase64Utf8(text) {
   const bytes = new TextEncoder().encode(text);
   let binary = "";
-  bytes.forEach((byte) => {
-    binary += String.fromCharCode(byte);
-  });
+  const chunkSize = 0x8000;
+  for (let index = 0; index < bytes.length; index += chunkSize) {
+    const chunk = bytes.subarray(index, index + chunkSize);
+    binary += String.fromCharCode(...chunk);
+  }
   return btoa(binary);
+}
+
+async function readGitHubError(response) {
+  let details = "";
+  try {
+    const json = await response.json();
+    details = json.message || JSON.stringify(json);
+  } catch {
+    details = await response.text();
+  }
+  if (response.status === 401) {
+    return "GitHub token 无效或已过期，请重新生成 token。";
+  }
+  if (response.status === 403) {
+    return "GitHub token 没有写入权限。请确认 fine-grained token 已授权本仓库，并具备 Contents: Read and write。";
+  }
+  if (response.status === 404) {
+    return "没有找到仓库或数据文件。请确认 token 已授权 cdq3000/junyan-newmedia-dashboard。";
+  }
+  if (response.status === 409) {
+    return "远程数据刚被别人更新过，请先点击“重新读取线上数据”，合并后再发布。";
+  }
+  return `GitHub 返回 HTTP ${response.status}: ${details}`;
+}
+
+async function validateGitHubToken(headers) {
+  const response = await fetch(`https://api.github.com/repos/${REPO}`, { headers });
+  if (!response.ok) {
+    throw new Error(await readGitHubError(response));
+  }
+  const repo = await response.json();
+  if (!repo.permissions?.push) {
+    throw new Error("当前 token 可以读取仓库，但没有 push 权限。请给 token 增加 Contents: Read and write。");
+  }
+}
+
+async function getRemoteDataFile(headers) {
+  const getUrl = `https://api.github.com/repos/${REPO}/contents/${DATA_PATH}?ref=main`;
+  const current = await fetch(getUrl, { headers });
+  if (current.status === 404) {
+    return null;
+  }
+  if (!current.ok) {
+    throw new Error(await readGitHubError(current));
+  }
+  return current.json();
+}
+
+async function updateRemoteDataFile(headers, token) {
+  const info = await getRemoteDataFile(headers);
+  const body = {
+    message: `Update dashboard data ${state.data.generatedAt}`,
+    content: toBase64Utf8(JSON.stringify(state.data, null, 2)),
+    branch: "main",
+  };
+  if (info?.sha) body.sha = info.sha;
+  const update = await fetch(`https://api.github.com/repos/${REPO}/contents/${DATA_PATH}`, {
+    method: "PUT",
+    headers: { ...headers, "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!update.ok) {
+    throw new Error(await readGitHubError(update));
+  }
+  return update.json();
 }
 
 async function publishToGitHub() {
@@ -342,25 +409,10 @@ async function publishToGitHub() {
     Accept: "application/vnd.github+json",
     "X-GitHub-Api-Version": "2022-11-28",
   };
-  const getUrl = `https://api.github.com/repos/${REPO}/contents/${DATA_PATH}?ref=main`;
-  const current = await fetch(getUrl, { headers });
-  if (!current.ok) throw new Error(`读取远程数据失败 HTTP ${current.status}`);
-  const info = await current.json();
-  const body = {
-    message: `Update dashboard data ${state.data.generatedAt}`,
-    content: toBase64Utf8(JSON.stringify(state.data, null, 2)),
-    sha: info.sha,
-    branch: "main",
-  };
-  const update = await fetch(`https://api.github.com/repos/${REPO}/contents/${DATA_PATH}`, {
-    method: "PUT",
-    headers: { ...headers, "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
-  if (!update.ok) {
-    const text = await update.text();
-    throw new Error(`发布失败 HTTP ${update.status}: ${text}`);
-  }
+  setStatus("正在校验 GitHub token...");
+  await validateGitHubToken(headers);
+  setStatus("正在发布数据到 GitHub...");
+  await updateRemoteDataFile(headers, token);
   localStorage.removeItem("junyanAdminDraft");
   setDirty(false);
   setStatus("已发布到 GitHub，前台约 5-30 秒刷新");
@@ -551,7 +603,10 @@ document.querySelector("#renameStoreBtn").addEventListener("click", renameStore)
 document.querySelector("#deleteStoreBtn").addEventListener("click", deleteStore);
 document.querySelector("#addMonthBtn").addEventListener("click", addMonth);
 document.querySelector("#exportBtn").addEventListener("click", exportJson);
-document.querySelector("#publishBtn").addEventListener("click", () => publishToGitHub().catch((error) => alert(error.message)));
+document.querySelector("#publishBtn").addEventListener("click", () => publishToGitHub().catch((error) => {
+  setStatus(`发布失败：${error.message}`);
+  alert(`发布失败：${error.message}`);
+}));
 document.querySelector("#resetRemoteBtn").addEventListener("click", async () => {
   localStorage.removeItem("junyanAdminDraft");
   await loadData();
