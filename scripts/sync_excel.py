@@ -154,19 +154,16 @@ def month_from_summary_title(value: Any) -> str | None:
     import re
 
     text = "" if value is None else str(value)
-    match = re.search(r"(\d{1,2})月", text)
-    return f"{int(match.group(1))}月" if match else None
+    matches = re.findall(r"(\d{1,2})月", text)
+    return f"{int(matches[-1])}月" if matches else None
 
 
-def read_summary_sheet_fallback(wb, stores: dict[str, dict[str, Any]]) -> None:
+def read_latest_summary_sheet(wb, stores: dict[str, dict[str, Any]]) -> None:
     ws = wb.worksheets[2]
     month = month_from_summary_title(ws.cell(row=2, column=3).value) or month_from_summary_title(ws.cell(row=1, column=1).value)
     if not month:
         return
     mapping = {
-        "spend": 5,
-        "liveSessions": 6,
-        "shortVideos": 7,
         "leads": 8,
         "visits": 18,
         "orders": 19,
@@ -182,17 +179,23 @@ def read_summary_sheet_fallback(wb, stores: dict[str, dict[str, Any]]) -> None:
         for metric, col in mapping.items():
             value = num(ws.cell(row=row, column=col).value)
             if value is not None:
-                store["monthly"][month][metric] = value
+                if metric == "orderShare":
+                    store["monthly"][month][metric] = value
+                else:
+                    previous_total = sum(
+                        (store["monthly"].get(item, {}) or {}).get(metric, 0) or 0
+                        for item in MONTHS
+                        if int(item.replace("月", "")) < int(month.replace("月", ""))
+                    )
+                    store["monthly"][month][metric] = max(0, value - previous_total)
 
 
 def build_payload(excel_path: Path) -> dict[str, Any]:
     wb = load_workbook(excel_path, data_only=True, read_only=True)
     stores: dict[str, dict[str, Any]] = {}
     read_monthly_sheet(wb, stores)
-    try:
-        read_detail_sheet(wb, stores)
-    except Exception:
-        read_summary_sheet_fallback(wb, stores)
+    read_detail_sheet(wb, stores)
+    read_latest_summary_sheet(wb, stores)
 
     ordered = sorted(
         stores.values(),

@@ -596,11 +596,12 @@ function readDetailSheet(workbook, payload) {
 
 function monthFromSummaryTitle(value) {
   const text = String(value || "");
-  const match = text.match(/(\d{1,2})月/);
+  const matches = [...text.matchAll(/(\d{1,2})月/g)];
+  const match = matches.at(-1);
   return match ? `${Number(match[1])}月` : null;
 }
 
-function readSummarySheetFallback(workbook, payload) {
+function readLatestSummarySheet(workbook, payload) {
   const sheet = workbook.Sheets["总表-数据收集"] || workbook.Sheets[workbook.SheetNames[2]];
   if (!sheet) throw new Error("没有找到 总表-数据收集 工作表");
   const month = monthFromSummaryTitle(sheetCell(sheet, 2, 3)) || monthFromSummaryTitle(sheetCell(sheet, 1, 1));
@@ -614,9 +615,6 @@ function readSummarySheetFallback(workbook, payload) {
     ensureMonth(store, month);
     const target = store.monthly[month];
     const mapping = {
-      spend: 5,
-      liveSessions: 6,
-      shortVideos: 7,
       leads: 8,
       visits: 18,
       orders: 19,
@@ -624,7 +622,16 @@ function readSummarySheetFallback(workbook, payload) {
     };
     Object.entries(mapping).forEach(([metric, col]) => {
       const value = numeric(sheetCell(sheet, row, col));
-      if (value !== null) target[metric] = value;
+      if (value !== null) {
+        if (metric === "orderShare") {
+          target[metric] = value;
+        } else {
+          const previousTotal = payload.months
+            .filter((item) => parseInt(item, 10) < parseInt(month, 10))
+            .reduce((sum, item) => sum + Number(store.monthly?.[item]?.[metric] || 0), 0);
+          target[metric] = Math.max(0, value - previousTotal);
+        }
+      }
     });
   }
 }
@@ -651,11 +658,8 @@ function buildPayloadFromWorkbook(workbook, fileName) {
     totals: {},
   };
   readMonthlyComparison(workbook, payload);
-  try {
-    readDetailSheet(workbook, payload);
-  } catch (error) {
-    readSummarySheetFallback(workbook, payload);
-  }
+  readDetailSheet(workbook, payload);
+  readLatestSummarySheet(workbook, payload);
   payload.months = [...new Set(payload.months)]
     .filter((month) => payload.stores.some((store) => Object.values(store.monthly?.[month] || {}).some(Boolean)))
     .sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
