@@ -1,7 +1,7 @@
 {
   "title": "骏延集团新媒体数据",
   "sourceFile": "data/source.xlsx",
-  "generatedAt": "2026-06-08T17:40:58",
+  "generatedAt": "2026-06-16T01:14:34",
   "months": [
     "1月",
     "2月",
@@ -34,7 +34,7 @@
           "orders": 36.0,
           "orderShare": 0.31,
           "attritionRate": 0,
-          "spend": 112378.13
+          "spend": 112378.0
         },
         "2月": {
           "liveSessions": 148.0,
@@ -44,7 +44,7 @@
           "orders": 4.0,
           "orderShare": 0.1,
           "attritionRate": 0,
-          "spend": 76252.12
+          "spend": 76252.1
         },
         "3月": {
           "liveSessions": 167.0,
@@ -54,7 +54,7 @@
           "orders": 9.0,
           "orderShare": 0.158,
           "attritionRate": 0,
-          "spend": 42298.04
+          "spend": 42298.0
         },
         "4月": {
           "liveSessions": 102.0,
@@ -64,27 +64,27 @@
           "orders": 7.0,
           "orderShare": 0.008,
           "attritionRate": 0,
-          "spend": 19166.62
+          "spend": 19166.6
         },
         "5月": {
           "liveSessions": 110.0,
           "shortVideos": 87.0,
-          "leads": 1126.0,
-          "visits": 22.0,
-          "orders": 10.0,
-          "orderShare": 0.12,
+          "leads": 855.0,
+          "visits": 20.0,
+          "orders": 8.0,
+          "orderShare": 0.2,
           "attritionRate": 0,
-          "spend": 24770.62
+          "spend": 24770.6
         },
         "6月": {
-          "liveSessions": 20.0,
-          "shortVideos": 33.0,
-          "leads": 180.0,
-          "visits": 1.0,
-          "orders": 0.0,
-          "orderShare": 0.0,
+          "liveSessions": 38.0,
+          "shortVideos": 66.0,
+          "leads": 416.0,
+          "visits": 6.0,
+          "orders": 3.0,
+          "orderShare": 0.08,
           "attritionRate": 0,
-          "spend": 8478.56
+          "spend": 15124.4
         },
         "7月": {
           "liveSessions": 0,
@@ -179,13 +179,13 @@
           "orders": 9.0,
           "orderShare": 0.2,
           "attritionRate": 0,
-          "spend": 15070.65
+          "spend": 15070.7
         },
         "4月": {
           "liveSessions": 74.0,
           "shortVideos": 80.0,
           "leads": 593.0,
-          "visits": 33.0,
+          "visits": 28.0,
           "orders": 7.0,
           "orderShare": 0.17,
           "attritionRate": 0,
@@ -194,22 +194,22 @@
         "5月": {
           "liveSessions": 82.0,
           "shortVideos": 83.0,
-          "leads": 525.0,
-          "visits": 42.0,
-          "orders": 10.0,
-          "orderShare": 0.227,
+          "leads": 410.0,
+          "visits": 32.0,
+          "orders": 8.0,
+          "orderShare": 0.236,
           "attritionRate": 0,
           "spend": 15729.0
         },
         "6月": {
-          "liveSessions": 19.0,
-          "shortVideos": 16.0,
-          "leads": 122.0,
-          "visits": 6.0,
-          "orders": 4.0,
-          "orderShare": 0.33,
+          "liveSessions": 37.0,
+          "shortVideos": 34.0,
+          "leads": 248.0,
+          "visits": 14.0,
+          "orders": 6.0,
+          "orderShare": 0.26,
           "attritionRate": 0,
-          "spend": 4675.0
+          "spend": 7778.0
         },
         "7月": {
           "liveSessions": 0,
@@ -310,31 +310,31 @@
           "liveSessions": 52.0,
           "shortVideos": 64.0,
           "leads": 497.0,
-          "visits": 25.0,
+          "visits": 4.0,
           "orders": 9.0,
           "orderShare": 0.12,
           "attritionRate": 0,
-          "spend": 17748.58
+          "spend": 17748.6
         },
         "5月": {
           "liveSessions": 54.0,
           "shortVideos": 50.0,
-          "leads": 537.0,
-          "visits": 26.0,
-          "orders": 10.0,
-          "orderShare": 0.18,
+          "leads": 452.0,
+          "visits": 25.0,
+          "orders": 9.0,
+          "orderShare": 0.21,
           "attritionRate": 0,
-          "spend": 19828.37
+          "spend": 19828.5
         },
         "6月": {
-          "liveSessions": 50.0,
-          "shortVideos": 80.0,
-          "leads": 150.0,
-          "visits": 8.0,
-          "orders": 1.0,
-          "orderShare": 0.11,
+          "liveSessions": 62.0,
+          "shortVideos": 94.0,
+          "leads": 343.0,
+          "visits": 20.0,
+          "orders": 2.0,
+          "orderShare": 0.14,
           "attritionRate": 0,
-          "spend": 3133.12
+          "spend": 8095.7
         },
         "7月": {
           "liveSessions": 0,
@@ -435,7 +435,7 @@
           "liveSessions": 62.0,
           "shortVideos": 60.0,
           "leads": 316.0,
-          "visits": 37.0,
+          "visits": 35.0,
           "orders": 5.0,
           "orderShare": 0.15,
           "attritionRate": 0,
@@ -444,22 +444,22 @@
         "5月": {
           "liveSessions": 68.0,
           "shortVideos": 46.0,
-          "leads": 375.0,
-          "visits": 50.0,
-          "orders": 10.0,
+          "leads": 261.0,
+          "visits": 41.0,
+          "orders": 8.0,
           "orderShare": 0.15,
           "attritionRate": 0,
           "spend": 14100.0
         },
         "6月": {
-          "liveSessions": 6.0,
-          "shortVideos": 6.0,
-          "leads": 22.0,
-          "visits": 6.0,
-          "orders": 0.0,
-          "orderShare": 0.0,
+          "liveSessions": 24.0,
+          "shortVideos": 18.0,
+          "leads": 116.0,
+          "visits": 14.0,
+          "orders": 2.0,
+          "orderShare": 0.15,
           "attritionRate": 0,
-          "spend": 0.0
+          "spend": 4000.0
         },
         "7月": {
           "liveSessions": 0,
@@ -534,7 +534,7 @@
           "orders": 6.0,
           "orderShare": 0.12,
           "attritionRate": 0,
-          "spend": 62531.25
+          "spend": 62531.3
         },
         "2月": {
           "liveSessions": 88.0,
@@ -544,7 +544,7 @@
           "orders": 3.0,
           "orderShare": 0.23,
           "attritionRate": 0,
-          "spend": 26762.36
+          "spend": 26762.4
         },
         "3月": {
           "liveSessions": 79.0,
@@ -554,7 +554,7 @@
           "orders": 9.0,
           "orderShare": 0.13,
           "attritionRate": 0,
-          "spend": 73590.73
+          "spend": 73590.7
         },
         "4月": {
           "liveSessions": 93.0,
@@ -564,27 +564,27 @@
           "orders": 12.0,
           "orderShare": 0.1043,
           "attritionRate": 0,
-          "spend": 94677.84
+          "spend": 94677.8
         },
         "5月": {
           "liveSessions": 90.0,
           "shortVideos": 129.0,
-          "leads": 1412.0,
-          "visits": 44.0,
-          "orders": 18.0,
-          "orderShare": 0.11,
+          "leads": 1095.0,
+          "visits": 31.0,
+          "orders": 10.0,
+          "orderShare": 0.16,
           "attritionRate": 0,
-          "spend": 123493.48
+          "spend": 123493.0
         },
         "6月": {
-          "liveSessions": 18.0,
-          "shortVideos": 34.0,
-          "leads": 167.0,
-          "visits": 3.0,
-          "orders": 2.0,
-          "orderShare": 0.13,
+          "liveSessions": 44.0,
+          "shortVideos": 82.0,
+          "leads": 379.0,
+          "visits": 13.0,
+          "orders": 3.0,
+          "orderShare": 0.024,
           "attritionRate": 0,
-          "spend": 10345.75
+          "spend": 26978.75
         },
         "7月": {
           "liveSessions": 0,
@@ -659,7 +659,7 @@
           "orders": 6.0,
           "orderShare": 0.06,
           "attritionRate": 0,
-          "spend": 98074.26
+          "spend": 98074.3
         },
         "2月": {
           "liveSessions": 97.0,
@@ -669,7 +669,7 @@
           "orders": 13.0,
           "orderShare": 0.6,
           "attritionRate": 0,
-          "spend": 68187.33
+          "spend": 68187.3
         },
         "3月": {
           "liveSessions": 77.0,
@@ -679,7 +679,7 @@
           "orders": 17.0,
           "orderShare": 0.346,
           "attritionRate": 0,
-          "spend": 73233.25
+          "spend": 73233.3
         },
         "4月": {
           "liveSessions": 97.0,
@@ -689,27 +689,27 @@
           "orders": 16.0,
           "orderShare": 0.1,
           "attritionRate": 0,
-          "spend": 67492.08
+          "spend": 67492.1
         },
         "5月": {
           "liveSessions": 115.0,
           "shortVideos": 165.0,
-          "leads": 1084.0,
-          "visits": 61.0,
-          "orders": 20.0,
-          "orderShare": 0.233,
+          "leads": 606.0,
+          "visits": 28.0,
+          "orders": 15.0,
+          "orderShare": 0.2,
           "attritionRate": 0,
           "spend": 47990.0
         },
         "6月": {
-          "liveSessions": 15.0,
-          "shortVideos": 33.0,
-          "leads": 213.0,
-          "visits": 9.0,
-          "orders": 7.0,
-          "orderShare": 0.3,
+          "liveSessions": 38.0,
+          "shortVideos": 75.0,
+          "leads": 463.0,
+          "visits": 28.0,
+          "orders": 11.0,
+          "orderShare": 0.25,
           "attritionRate": 0,
-          "spend": 13658.5
+          "spend": 35970.4
         },
         "7月": {
           "liveSessions": 0,
@@ -784,7 +784,7 @@
           "orders": 11.0,
           "orderShare": 0.26,
           "attritionRate": 0,
-          "spend": 60542.31
+          "spend": 60542.3
         },
         "2月": {
           "liveSessions": 56.0,
@@ -794,7 +794,7 @@
           "orders": 4.0,
           "orderShare": 0.25,
           "attritionRate": 0,
-          "spend": 38282.43
+          "spend": 38282.4
         },
         "3月": {
           "liveSessions": 66.0,
@@ -810,31 +810,31 @@
           "liveSessions": 111.0,
           "shortVideos": 136.0,
           "leads": 365.0,
-          "visits": 42.0,
+          "visits": 22.0,
           "orders": 5.0,
           "orderShare": 0.062,
           "attritionRate": 0,
-          "spend": 84894.66
+          "spend": 84894.7
         },
         "5月": {
           "liveSessions": 89.0,
           "shortVideos": 118.0,
-          "leads": 569.0,
-          "visits": 27.0,
-          "orders": 5.0,
-          "orderShare": 0.0884,
+          "leads": 408.0,
+          "visits": 23.0,
+          "orders": 4.0,
+          "orderShare": 0.084,
           "attritionRate": 0,
-          "spend": 39428.55
+          "spend": 39428.6
         },
         "6月": {
-          "liveSessions": 19.0,
-          "shortVideos": 39.0,
-          "leads": 139.0,
-          "visits": 4.0,
-          "orders": 0.0,
-          "orderShare": 0.0,
+          "liveSessions": 35.0,
+          "shortVideos": 119.0,
+          "leads": 299.0,
+          "visits": 10.0,
+          "orders": 2.0,
+          "orderShare": 0.022,
           "attritionRate": 0,
-          "spend": 8551.01
+          "spend": 25263.77
         },
         "7月": {
           "liveSessions": 0,
@@ -919,7 +919,7 @@
           "orders": 3.0,
           "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 19537.35
+          "spend": 19537.4
         },
         "3月": {
           "liveSessions": 63.0,
@@ -929,37 +929,37 @@
           "orders": 5.0,
           "orderShare": 0.11,
           "attritionRate": 0,
-          "spend": 21355.79
+          "spend": 21355.8
         },
         "4月": {
           "liveSessions": 69.0,
           "shortVideos": 103.0,
           "leads": 220.0,
-          "visits": 29.0,
+          "visits": 20.0,
           "orders": 3.0,
           "orderShare": 0.067,
           "attritionRate": 0,
-          "spend": 26236.97
+          "spend": 26237.0
         },
         "5月": {
           "liveSessions": 57.0,
           "shortVideos": 147.0,
-          "leads": 380.0,
-          "visits": 22.0,
-          "orders": 4.0,
-          "orderShare": 0.0727,
+          "leads": 257.0,
+          "visits": 13.0,
+          "orders": 1.0,
+          "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 20394.54
+          "spend": 20394.5
         },
         "6月": {
-          "liveSessions": 15.0,
-          "shortVideos": 26.0,
-          "leads": 63.0,
-          "visits": 4.0,
-          "orders": 1.0,
-          "orderShare": 0.06,
+          "liveSessions": 39.0,
+          "shortVideos": 70.0,
+          "leads": 205.0,
+          "visits": 9.0,
+          "orders": 2.0,
+          "orderShare": 0.13,
           "attritionRate": 0,
-          "spend": 5636.62
+          "spend": 13965.13
         },
         "7月": {
           "liveSessions": 0,
@@ -1060,7 +1060,7 @@
           "liveSessions": 73.0,
           "shortVideos": 84.0,
           "leads": 74.0,
-          "visits": 23.0,
+          "visits": 15.0,
           "orders": 0.0,
           "orderShare": 0.0,
           "attritionRate": 0,
@@ -1069,18 +1069,18 @@
         "5月": {
           "liveSessions": 67.0,
           "shortVideos": 99.0,
-          "leads": 84.0,
-          "visits": 12.0,
+          "leads": 52.0,
+          "visits": 8.0,
           "orders": 0.0,
           "orderShare": 0.0,
           "attritionRate": 0,
           "spend": 0.0
         },
         "6月": {
-          "liveSessions": 15.0,
-          "shortVideos": 14.0,
-          "leads": 14.0,
-          "visits": 2.0,
+          "liveSessions": 33.0,
+          "shortVideos": 34.0,
+          "leads": 27.0,
+          "visits": 4.0,
           "orders": 0.0,
           "orderShare": 0.0,
           "attritionRate": 0,
@@ -1159,7 +1159,7 @@
           "orders": 19.0,
           "orderShare": 0.1,
           "attritionRate": 0,
-          "spend": 56953.26
+          "spend": 56953.3
         },
         "2月": {
           "liveSessions": 61.0,
@@ -1169,7 +1169,7 @@
           "orders": 5.0,
           "orderShare": 0.22,
           "attritionRate": 0,
-          "spend": 57651.47
+          "spend": 57651.5
         },
         "3月": {
           "liveSessions": 83.0,
@@ -1179,37 +1179,37 @@
           "orders": 21.0,
           "orderShare": 0.102,
           "attritionRate": 0,
-          "spend": 91765.91
+          "spend": 91765.9
         },
         "4月": {
           "liveSessions": 75.0,
           "shortVideos": 84.0,
           "leads": 840.0,
-          "visits": 127.0,
+          "visits": 80.0,
           "orders": 22.0,
           "orderShare": 0.169,
           "attritionRate": 0,
-          "spend": 64921.48
+          "spend": 64921.5
         },
         "5月": {
           "liveSessions": 66.0,
           "shortVideos": 91.0,
-          "leads": 1537.0,
-          "visits": 89.0,
-          "orders": 25.0,
-          "orderShare": 0.185,
+          "leads": 1195.0,
+          "visits": 65.0,
+          "orders": 20.0,
+          "orderShare": 0.174,
           "attritionRate": 0,
-          "spend": 119690.21
+          "spend": 119690.0
         },
         "6月": {
-          "liveSessions": 15.0,
-          "shortVideos": 25.0,
-          "leads": 331.0,
-          "visits": 13.0,
+          "liveSessions": 32.0,
+          "shortVideos": 65.0,
+          "leads": 665.0,
+          "visits": 17.0,
           "orders": 2.0,
-          "orderShare": 0.125,
+          "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 24864.39
+          "spend": 47521.65
         },
         "7月": {
           "liveSessions": 0,
@@ -1310,7 +1310,7 @@
           "liveSessions": 120.0,
           "shortVideos": 119.0,
           "leads": 1337.0,
-          "visits": 120.0,
+          "visits": 74.0,
           "orders": 35.0,
           "orderShare": 0.2,
           "attritionRate": 0,
@@ -1319,22 +1319,22 @@
         "5月": {
           "liveSessions": 111.0,
           "shortVideos": 116.0,
-          "leads": 1860.0,
-          "visits": 92.0,
-          "orders": 27.0,
+          "leads": 1485.0,
+          "visits": 69.0,
+          "orders": 22.0,
           "orderShare": 0.2,
           "attritionRate": 0,
           "spend": 112219.0
         },
         "6月": {
-          "liveSessions": 27.0,
-          "shortVideos": 22.0,
-          "leads": 298.0,
-          "visits": 19.0,
-          "orders": 6.0,
-          "orderShare": 0.25,
+          "liveSessions": 50.0,
+          "shortVideos": 50.0,
+          "leads": 751.0,
+          "visits": 36.0,
+          "orders": 12.0,
+          "orderShare": 0.18,
           "attritionRate": 0,
-          "spend": 15149.0
+          "spend": 41267.0
         },
         "7月": {
           "liveSessions": 0,
@@ -1409,7 +1409,7 @@
           "orders": 0.0,
           "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 28439.92
+          "spend": 28439.9
         },
         "2月": {
           "liveSessions": 48.0,
@@ -1419,7 +1419,7 @@
           "orders": 2.0,
           "orderShare": 0.25,
           "attritionRate": 0,
-          "spend": 20466.86
+          "spend": 20466.9
         },
         "3月": {
           "liveSessions": 60.0,
@@ -1435,7 +1435,7 @@
           "liveSessions": 54.0,
           "shortVideos": 83.0,
           "leads": 941.0,
-          "visits": 28.0,
+          "visits": 24.0,
           "orders": 13.0,
           "orderShare": 0.06,
           "attritionRate": 0,
@@ -1444,22 +1444,22 @@
         "5月": {
           "liveSessions": 97.0,
           "shortVideos": 121.0,
-          "leads": 339.0,
-          "visits": 18.0,
+          "leads": 269.0,
+          "visits": 15.0,
           "orders": 0.0,
           "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 37818.95
+          "spend": 37819.0
         },
         "6月": {
-          "liveSessions": 4.0,
-          "shortVideos": 3.0,
-          "leads": 17.0,
-          "visits": 1.0,
+          "liveSessions": 16.0,
+          "shortVideos": 24.0,
+          "leads": 187.0,
+          "visits": 3.0,
           "orders": 1.0,
-          "orderShare": 0.25,
+          "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 839.22
+          "spend": 15266.61
         },
         "7月": {
           "liveSessions": 0,
@@ -1534,7 +1534,7 @@
           "orders": 1.0,
           "orderShare": 0.1,
           "attritionRate": 0,
-          "spend": 42290.09
+          "spend": 42290.1
         },
         "2月": {
           "liveSessions": 36.0,
@@ -1554,37 +1554,37 @@
           "orders": 4.0,
           "orderShare": 0.2,
           "attritionRate": 0,
-          "spend": 38033.24
+          "spend": 38033.2
         },
         "4月": {
           "liveSessions": 73.0,
           "shortVideos": 162.0,
           "leads": 398.0,
-          "visits": 28.0,
+          "visits": 18.0,
           "orders": 7.0,
           "orderShare": 0.043,
           "attritionRate": 0,
-          "spend": 40025.86
+          "spend": 40025.9
         },
         "5月": {
           "liveSessions": 73.0,
           "shortVideos": 143.0,
-          "leads": 263.0,
-          "visits": 12.0,
-          "orders": 5.0,
-          "orderShare": 0.176,
+          "leads": 212.0,
+          "visits": 9.0,
+          "orders": 4.0,
+          "orderShare": 0.207,
           "attritionRate": 0,
-          "spend": 26141.25
+          "spend": 26141.3
         },
         "6月": {
-          "liveSessions": 10.0,
-          "shortVideos": 34.0,
-          "leads": 61.0,
-          "visits": 2.0,
-          "orders": 0.0,
-          "orderShare": 0.0,
+          "liveSessions": 24.0,
+          "shortVideos": 61.0,
+          "leads": 97.0,
+          "visits": 4.0,
+          "orders": 1.0,
+          "orderShare": 0.11,
           "attritionRate": 0,
-          "spend": 3642.0
+          "spend": 9689.19
         },
         "7月": {
           "liveSessions": 0,
@@ -1689,27 +1689,27 @@
           "orders": 2.0,
           "orderShare": 0.067,
           "attritionRate": 0,
-          "spend": 32341.22
+          "spend": 32341.2
         },
         "5月": {
           "liveSessions": 96.0,
           "shortVideos": 60.0,
-          "leads": 408.0,
-          "visits": 33.0,
-          "orders": 6.0,
-          "orderShare": 0.136,
+          "leads": 347.0,
+          "visits": 27.0,
+          "orders": 4.0,
+          "orderShare": 0.083,
           "attritionRate": 0,
           "spend": 29621.0
         },
         "6月": {
-          "liveSessions": 20.0,
-          "shortVideos": 13.0,
-          "leads": 96.0,
-          "visits": 7.0,
+          "liveSessions": 40.0,
+          "shortVideos": 24.0,
+          "leads": 182.0,
+          "visits": 12.0,
           "orders": 1.0,
-          "orderShare": 0.33,
+          "orderShare": 0.09,
           "attritionRate": 0,
-          "spend": 6357.0
+          "spend": 11081.0
         },
         "7月": {
           "liveSessions": 0,
@@ -1819,22 +1819,22 @@
         "5月": {
           "liveSessions": 53.0,
           "shortVideos": 53.0,
-          "leads": 64.0,
-          "visits": 3.0,
-          "orders": 1.0,
-          "orderShare": 0.16,
+          "leads": 39.0,
+          "visits": 1.0,
+          "orders": 0.0,
+          "orderShare": 0.0,
           "attritionRate": 0,
           "spend": 20438.0
         },
         "6月": {
-          "liveSessions": 21.0,
-          "shortVideos": 13.0,
-          "leads": 75.0,
+          "liveSessions": 35.0,
+          "shortVideos": 27.0,
+          "leads": 120.0,
           "visits": 1.0,
           "orders": 1.0,
-          "orderShare": 0.25,
+          "orderShare": 0.33,
           "attritionRate": 0,
-          "spend": 3028.56
+          "spend": 5242.32
         },
         "7月": {
           "liveSessions": 0,
@@ -1935,7 +1935,7 @@
           "liveSessions": 12.0,
           "shortVideos": 76.0,
           "leads": 324.0,
-          "visits": 10.0,
+          "visits": 2.0,
           "orders": 2.0,
           "orderShare": 0.1,
           "attritionRate": 0,
@@ -1944,22 +1944,22 @@
         "5月": {
           "liveSessions": 18.0,
           "shortVideos": 58.0,
-          "leads": 210.0,
-          "visits": 15.0,
-          "orders": 6.0,
-          "orderShare": 0.1,
+          "leads": 171.0,
+          "visits": 12.0,
+          "orders": 4.0,
+          "orderShare": 0.05,
           "attritionRate": 0,
           "spend": 13811.0
         },
         "6月": {
           "liveSessions": 0.0,
-          "shortVideos": 12.0,
-          "leads": 30.0,
-          "visits": 1.0,
-          "orders": 0.0,
-          "orderShare": 0.0,
+          "shortVideos": 38.0,
+          "leads": 113.0,
+          "visits": 4.0,
+          "orders": 1.0,
+          "orderShare": 0.2,
           "attritionRate": 0,
-          "spend": 3261.0
+          "spend": 8465.0
         },
         "7月": {
           "liveSessions": 0,
@@ -2044,7 +2044,7 @@
           "orders": 3.0,
           "orderShare": 0.17,
           "attritionRate": 0,
-          "spend": 21695.79
+          "spend": 21695.8
         },
         "3月": {
           "liveSessions": 108.0,
@@ -2054,37 +2054,37 @@
           "orders": 7.0,
           "orderShare": 0.18,
           "attritionRate": 0,
-          "spend": 69662.06
+          "spend": 69662.1
         },
         "4月": {
           "liveSessions": 135.0,
           "shortVideos": 132.0,
           "leads": 557.0,
-          "visits": 15.0,
+          "visits": 12.0,
           "orders": 3.0,
           "orderShare": 0.1,
           "attritionRate": 0,
-          "spend": 31248.57
+          "spend": 31248.6
         },
         "5月": {
           "liveSessions": 143.0,
           "shortVideos": 151.0,
-          "leads": 682.0,
-          "visits": 30.0,
-          "orders": 8.0,
-          "orderShare": 0.18,
+          "leads": 504.0,
+          "visits": 24.0,
+          "orders": 6.0,
+          "orderShare": 0.16,
           "attritionRate": 0,
           "spend": 45182.0
         },
         "6月": {
-          "liveSessions": 36.0,
-          "shortVideos": 42.0,
-          "leads": 201.0,
-          "visits": 3.0,
-          "orders": 1.0,
-          "orderShare": 0.3,
+          "liveSessions": 90.0,
+          "shortVideos": 84.0,
+          "leads": 480.0,
+          "visits": 11.0,
+          "orders": 3.0,
+          "orderShare": 0.19,
           "attritionRate": 0,
-          "spend": 17282.0
+          "spend": 35458.0
         },
         "7月": {
           "liveSessions": 0,
@@ -2159,7 +2159,7 @@
           "orders": 4.0,
           "orderShare": 0.22,
           "attritionRate": 0,
-          "spend": 34115.19
+          "spend": 34115.2
         },
         "2月": {
           "liveSessions": 46.0,
@@ -2169,7 +2169,7 @@
           "orders": 2.0,
           "orderShare": 0.18,
           "attritionRate": 0,
-          "spend": 15821.48
+          "spend": 15821.5
         },
         "3月": {
           "liveSessions": 44.0,
@@ -2179,37 +2179,37 @@
           "orders": 4.0,
           "orderShare": 0.29,
           "attritionRate": 0,
-          "spend": 27175.78
+          "spend": 27175.8
         },
         "4月": {
           "liveSessions": 58.0,
           "shortVideos": 96.0,
           "leads": 719.0,
-          "visits": 25.0,
+          "visits": 23.0,
           "orders": 11.0,
           "orderShare": 0.15,
           "attritionRate": 0,
-          "spend": 37993.45
+          "spend": 37993.5
         },
         "5月": {
           "liveSessions": 52.0,
           "shortVideos": 142.0,
-          "leads": 431.0,
-          "visits": 19.0,
+          "leads": 323.0,
+          "visits": 15.0,
           "orders": 4.0,
-          "orderShare": 0.27,
+          "orderShare": 0.0,
           "attritionRate": 0,
           "spend": 31541.59
         },
         "6月": {
-          "liveSessions": 11.0,
-          "shortVideos": 22.0,
-          "leads": 132.0,
-          "visits": 2.0,
+          "liveSessions": 28.0,
+          "shortVideos": 63.0,
+          "leads": 283.0,
+          "visits": 6.0,
           "orders": 0.0,
           "orderShare": 0.0,
           "attritionRate": 0,
-          "spend": 8140.4
+          "spend": 18153.97
         },
         "7月": {
           "liveSessions": 0,
@@ -2283,7 +2283,7 @@
       "orders": 145.0,
       "orderShare": 0.1863448275862069,
       "attritionRate": 0,
-      "spend": 692084.6399999999
+      "spend": 692084.6299999999
     },
     "2月": {
       "liveSessions": 1037.0,
@@ -2293,7 +2293,7 @@
       "orders": 65.0,
       "orderShare": 0.28215384615384614,
       "attritionRate": 0,
-      "spend": 428087.5899999999
+      "spend": 428087.69999999995
     },
     "3月": {
       "liveSessions": 1337.0,
@@ -2303,37 +2303,37 @@
       "orders": 158.0,
       "orderShare": 0.17529113924050635,
       "attritionRate": 0,
-      "spend": 686883.3200000001
+      "spend": 686883.37
     },
     "4月": {
       "liveSessions": 1356.0,
       "shortVideos": 1801.0,
       "leads": 10462.0,
-      "visits": 700.0,
+      "visits": 515.0,
       "orders": 159.0,
       "orderShare": 0.12906666666666664,
       "attritionRate": 0,
-      "spend": 649428.5299999999
+      "spend": 649428.7
     },
     "5月": {
       "liveSessions": 1441.0,
       "shortVideos": 1859.0,
-      "leads": 11886.0,
-      "visits": 617.0,
-      "orders": 169.0,
-      "orderShare": 0.17244852071005917,
+      "leads": 8941.0,
+      "visits": 458.0,
+      "orders": 127.0,
+      "orderShare": 0.1709763779527559,
       "attritionRate": 0,
-      "spend": 742197.5599999999
+      "spend": 742197.09
     },
     "6月": {
-      "liveSessions": 321.0,
-      "shortVideos": 467.0,
-      "leads": 2311.0,
-      "visits": 92.0,
-      "orders": 27.0,
-      "orderShare": 0.24925925925925924,
+      "liveSessions": 665.0,
+      "shortVideos": 1028.0,
+      "leads": 5374.0,
+      "visits": 212.0,
+      "orders": 53.0,
+      "orderShare": 0.1691698113207547,
       "attritionRate": 0,
-      "spend": 137042.13
+      "spend": 329320.89
     }
   }
 }
